@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:91dabfb3ee7757e104ecf635998252af:1/1$ -->
+<TextureAtlas imagePath="Font 1.png">
+    <SubTexture name="A" x="2" y="2" width="21" height="29"/>
+    <SubTexture name="B" x="25" y="2" width="20" height="29"/>
+    <SubTexture name="C" x="47" y="2" width="19" height="30"/>
+    <SubTexture name="D" x="68" y="2" width="20" height="29"/>
+    <SubTexture name="E" x="90" y="2" width="20" height="29"/>
+    <SubTexture name="F" x="2" y="34" width="20" height="29"/>
+    <SubTexture name="G" x="24" y="34" width="21" height="30"/>
+    <SubTexture name="H" x="47" y="34" width="21" height="29"/>
+    <SubTexture name="I" x="70" y="34" width="14" height="29"/>
+    <SubTexture name="J" x="86" y="34" width="19" height="29"/>
+    <SubTexture name="K" x="2" y="66" width="24" height="43"/>
+    <SubTexture name="L" x="28" y="66" width="19" height="29"/>
+    <SubTexture name="M" x="49" y="66" width="21" height="29"/>
+    <SubTexture name="N" x="72" y="66" width="21" height="29"/>
+    <SubTexture name="O" x="95" y="66" width="19" height="30"/>
+    <SubTexture name="P" x="2" y="111" width="20" height="29"/>
+    <SubTexture name="Q" x="24" y="111" width="19" height="33"/>
+    <SubTexture name="R" x="45" y="111" width="20" height="29"/>
+    <SubTexture name="S" x="67" y="111" width="18" height="30"/>
+    <SubTexture name="T" x="87" y="111" width="19" height="29"/>
+    <SubTexture name="U" x="2" y="146" width="20" height="30"/>
+    <SubTexture name="V" x="24" y="146" width="20" height="29"/>
+    <SubTexture name="W" x="46" y="146" width="21" height="29"/>
+    <SubTexture name="X" x="69" y="146" width="20" height="29"/>
+    <SubTexture name="Y" x="91" y="146" width="20" height="29"/>
+    <SubTexture name="Z" x="2" y="178" width="18" height="29"/>
+</TextureAtlas>

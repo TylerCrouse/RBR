@@ -3,6 +3,9 @@ package Screens {
 	import starling.display.Sprite;
 	import starling.events.KeyboardEvent;
 	
+	
+	//All screen types extend this
+	//They must override all functions or give the default functionality
 	public class screen extends Sprite {
 		
 		protected function startScreen():void {
