@@ -2,8 +2,8 @@ package  Collections {
 	
 	import Screens.screen;
 
-	//gameScreen uses this class to gurantee a gameObject in an array
-	//lets it run gameObject methods on them
+	//Gurantees a screen object
+	//lets it run screen methods on it
 	public class screenCollector {
 		
 		private var screenArray:Array;
@@ -33,7 +33,7 @@ package  Collections {
 			
 		}
 		
-		//Empties the array, used in the games reset
+		//Empties the array, used to reset the state
 		public function clear():void {
 			
 			screenArray = null;

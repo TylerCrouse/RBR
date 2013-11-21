@@ -42,12 +42,11 @@ package
 			trace("Initializing");
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
-			
-			
 			//Changes the state to INIT
 			state = STATE_INIT;
 			numTicks = 0;	
 			
+			//Handles mouse presses
 			this.addEventListener(TouchEvent.TOUCH, handleTouch);
 			
 			//Start ticking
@@ -58,12 +57,14 @@ package
 			
 		}
 		
+		
 		private function tick(event:TimerEvent):void {
 			
 			switch(state) {
 				
 				case STATE_INIT:	
 					
+					//If the current screen has not been set or is not the loading screen, then set it to the loading screen
 					if (currentScreen == null || currentScreen.getType() != "loading") {
 						
 						trace("Initializing.");
@@ -78,13 +79,13 @@ package
 					
 				case STATE_MENU:
 					
+					//If the current screen has not been set or is not the menu
 					if (currentScreen == null || currentScreen.getType() != "mainMenu") {
 						
 						currentScreen = new tempScreen();
 						addChild(currentScreen);
 						
 					}
-					//trace("At menu.");
 					
 					break;
 					
@@ -101,6 +102,7 @@ package
 			
 		}
 		
+		//Do init things
 		private function startInit():void {
 			
 			var temp:tempObj = new tempObj();
@@ -110,6 +112,7 @@ package
 			
 		}
 		
+		//Clean up after init
 		private function doneInit():void {
 			
 			trace("Done initializing.");
@@ -117,6 +120,7 @@ package
 			
 		}
 		
+		//Handle mouse clicks
 		public function handleTouch(event:TouchEvent):void {
 			
 			//If a touch event is finished

@@ -8,7 +8,7 @@ package Objects {
 	import starling.events.KeyboardEvent;
 
 	//All of the gameObjects extend from this
-	//Lets the gameScreen treat all objects in the tilemap as the same type
+	//All gameObjects must override these methods or use the default returns
 	public class gameObject extends Sprite {		
 		
 		private var accel:Number;

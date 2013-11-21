@@ -1,9 +1,7 @@
 package Objects {
 	import starling.display.MovieClip;
-	/**
-	 * ...
-	 * @author Tyler Crouse and Ian Johnson
-	 */
+
+	//Placeholder because testing
 	public class tempObj extends gameObject{
 		
 		private var temp:MovieClip;

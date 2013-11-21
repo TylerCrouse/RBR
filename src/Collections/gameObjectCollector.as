@@ -2,7 +2,7 @@ package  Collections {
 	
 	import Objects.gameObject;
 
-	//gameScreen uses this class to gurantee a gameObject in an array
+	//This class gurantees a gameObject in an array
 	//lets it run gameObject methods on them
 	public class gameObjectCollector {
 		
@@ -33,7 +33,7 @@ package  Collections {
 			
 		}
 		
-		//Empties the array, used in the games reset
+		//Empties the array, used to reset the state
 		public function clear():void {
 			
 			objArray = null;

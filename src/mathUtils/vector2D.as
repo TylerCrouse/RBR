@@ -1,9 +1,8 @@
 package mathUtils {
 	import flash.geom.Point;
-	/**
-	 * ...
-	 * @author Tyler Crouse and Ian Johnson
-	 */
+
+	//Incomplete, at some point gonna be used for 2d vector movement
+	
 	public class vector2D extends Point{
 		
 		public function vector2D(x:Number, y:Number) {
