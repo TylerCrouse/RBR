@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:971d51d78a2ee675a39b181d49cc3ae8:1/1$ -->
+<TextureAtlas imagePath="sprites.png">
+    <SubTexture name="tempSprite" x="2" y="2" width="64" height="64"/>
+</TextureAtlas>

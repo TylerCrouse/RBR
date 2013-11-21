@@ -1,0 +1,80 @@
+package Objects {
+	
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	import starling.display.DisplayObject;
+	import starling.display.Sprite;
+	import mathUtils.vector2D;
+	import starling.events.KeyboardEvent;
+
+	//All of the gameObjects extend from this
+	//Lets the gameScreen treat all objects in the tilemap as the same type
+	public class gameObject extends Sprite {		
+		
+		private var accel:Number;
+		private var damage:int;
+		
+		public function gameObject() {
+			
+		}
+		
+		protected function init():void {
+			
+		}
+		
+		public function tick():void {
+			
+		}
+		
+		public function startAnimation():void {
+			
+		}
+		
+		public function stopAnimation():void {
+			
+		}
+		
+		public function onScreen(x:Number, y:Number):Boolean {
+			
+			return false;
+			
+		}
+		
+		public function getType():String {
+			
+			return "none";
+			
+		}
+		
+		public function moveTo(x:int, y:int):void {
+			
+			
+		}
+		
+		public function handleCollision(hitObject:gameObject):Boolean {
+			
+			return false;
+			
+		}
+		
+		public function hasCollision():Boolean {
+			
+			return false;
+			
+		}
+		
+		public function getDamageValue():int {
+			
+			return damage;
+			
+		}
+		
+		public function setAcceleration(x:Number):void {
+			
+			accel = x;
+			
+		}
+		
+	}
+
+}
