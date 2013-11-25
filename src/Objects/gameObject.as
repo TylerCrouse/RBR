@@ -6,6 +6,7 @@ package Objects {
 	import starling.display.Sprite;
 	import mathUtils.vector2D;
 	import starling.events.KeyboardEvent;
+	import starling.events.Touch;
 
 	//All of the gameObjects extend from this
 	//All gameObjects must override these methods or use the default returns
@@ -13,6 +14,7 @@ package Objects {
 		
 		private var accel:Number;
 		private var damage:int;
+		private var health:int;
 		
 		public function gameObject() {
 			
@@ -75,6 +77,21 @@ package Objects {
 			
 		}
 		
+		public function getHealth():int {
+			
+			return health;
+			
+		}
+		
+		public function handleTouch(touch:Touch):void {
+			
+		}
+		
+		private function setHealth(x:int):void {
+			
+			health = 0;
+			
+		}
 	}
 
 }

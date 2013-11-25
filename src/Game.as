@@ -25,6 +25,7 @@ package
 		private static const STATE_CREDITS:Number = 3;
 		private static const STATE_PLAY:Number = 4;
 		
+		private var temp:tempObj;
 		private var timer:Timer;
 		private var state:Number;
 		private var numTicks:Number;
@@ -85,7 +86,11 @@ package
 						currentScreen = new tempScreen();
 						addChild(currentScreen);
 						
+						temp = new tempObj();
+						addChild(temp);
+						
 					}
+					temp.tick();
 					
 					break;
 					
@@ -105,8 +110,7 @@ package
 		//Do init things
 		private function startInit():void {
 			
-			var temp:tempObj = new tempObj();
-			addChild(temp);
+
 			
 			dispatchEvent(new Event("initComplete" , true));
 			
@@ -128,7 +132,11 @@ package
 			
 			if (touch) {
 				
-				trace("lame");
+				if (state == STATE_MENU) {
+					
+					temp.handleTouch(touch);
+					
+				}
 				
 			}
 			

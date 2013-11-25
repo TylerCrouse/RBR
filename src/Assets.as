@@ -10,15 +10,16 @@ package
 		
 		[Embed(source="../Assets/temp.png")]
 		public static const temp:Class;
-
-				
+		
 		private static var gameTextures:Dictionary = new Dictionary();
 		private static var gameTextureAtlas:TextureAtlas;
 		
-		[Embed(source="../Assets/sprites.png")]
+		[Embed(source="../Assets/Font Assets/Font Sheets/Font 1/Font 1.png")]
+		//[Embed(source="../Assets/sprites.png")]
 		public static const AtlasTextureGame:Class;
 		
-		[Embed(source="../Assets/sprites.xml", mimeType="application/octet-stream")]
+		[Embed(source="../Assets/Font Assets/Font Sheets/Font 1/Font 1.xml", mimeType="application/octet-stream")]
+		//[Embed(source="../Assets/sprites.xml", mimeType="application/octet-stream")]
 		public static const AtlasXmlGame:Class;
 		
 		//Functions and utilities provided by starling to make sprites easy
@@ -42,6 +43,7 @@ package
 			}
 			return gameTextures[name];
 		}
+
 	}
 	
 	
