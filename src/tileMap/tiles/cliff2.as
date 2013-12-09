@@ -21,7 +21,7 @@ package tileMap.tiles {
 			var rand:Number = Math.random();
 
 			if (rand <= .5) {
-				trace("cliff 3");
+
 				cliffSprite = new MovieClip(Assets.getTile().getTextures("cliff3"), 45);
 			}else {
 				cliffSprite = new MovieClip(Assets.getTile().getTextures("cliff4"), 45);
