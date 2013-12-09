@@ -2,6 +2,7 @@ package Screens {
 	
 	import starling.display.Sprite;
 	import starling.events.KeyboardEvent;
+	import starling.events.Touch;
 	
 	
 	//All screen types extend this
@@ -29,6 +30,10 @@ package Screens {
 		}
 
 		public function handleKeyUp(event:KeyboardEvent):void{
+		}
+		
+		public function handleTouch(touch:Touch):void {
+			
 		}
 		
 	}
