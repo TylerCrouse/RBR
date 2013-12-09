@@ -6,7 +6,7 @@ package  Collections {
 	//lets it run gameObject methods on them
 	public class gameObjectCollector {
 		
-		 private var objArray:Array;
+		private var objArray:Array;
 		
 		public function gameObjectCollector() {
 			

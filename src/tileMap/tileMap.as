@@ -1,11 +1,15 @@
 package tileMap {
 	import Collections.tileCollector;
+	import starling.display.Sprite;
+	
+	public class tileMap extends Sprite{
+		
 
-	public class tileMap extends sprite{
+		var levelMap:tileCollector;
 		
 		public function tileMap() {
 			
-			
+			loadMap(1);
 			
 		}
 		
@@ -17,13 +21,31 @@ package tileMap {
 		
 		public function loadMap(x:Number) {
 			
-			var y:tileCollector = new tileCollector();
+			levelMap = new tileCollector(x);
+			fillMap();
+			
+		}
+		
+		public function moveMap(x:Number) {
+			
+			var i:int = 0;
+			for (i = 0; i < levelMap.getSize(); i++) {
+				
+				levelMap.getItemAt(i).x -= x;
+				
+			}
+			
 			
 		}
 		
 		private function fillMap() {
-			
-			
+		
+		var i:int = 0;
+			for (i = 0; i < levelMap.getSize(); i++) {
+				
+				this.addChild(levelMap.getItemAt(i));
+				
+			}	
 			
 		}
 		
