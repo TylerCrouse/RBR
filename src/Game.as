@@ -157,7 +157,6 @@ package
 					}
 					else {
 						currentScreen.handleKeyDown(event);
-						currentScreen.handleKeyUp(event);
 					}
 					break;
 				case STATE_PAUSE:
@@ -190,6 +189,12 @@ package
 					keyDown = false;
 					break;
 				case STATE_PLAY:
+					if(event.keyCode == 32){
+						//do nothing
+					}
+					else {
+						currentScreen.handleKeyUp(event);
+					}
 					keyDown = false;
 					break;
 				case STATE_PAUSE:
