@@ -4,11 +4,11 @@ package Screens {
 	 * ...
 	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
 	 */
-	public class tempScreen extends screen{
+	public class pauseScreen extends screen{
 		
 		private var bg:Image;
 		
-		public function tempScreen() {
+		public function pauseScreen() {
 			
 			startScreen();
 			
@@ -16,14 +16,14 @@ package Screens {
 		
 		protected override function startScreen():void {
 			
-			bg = new Image(Assets.getTexture("temp"));
+			bg = new Image(Assets.getTexture("pauseBG"));
 			this.addChild(bg);
 			
 		}
 		
 		public override function getType():String {
 			
-			return "play";
+			return "pause";
 			
 		}
 	}

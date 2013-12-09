@@ -24,12 +24,16 @@ package
 		private static const STATE_MENU:Number   = 2;
 		private static const STATE_CREDITS:Number = 3;
 		private static const STATE_PLAY:Number = 4;
+		private static const STATE_PAUSE:Number = 5;
+		private static const STATE_GAMEOVER:Number = 6;
+		private static const STATE_WIN:Number = 7;
 		
 		private var temp:tempObj;
 		private var timer:Timer;
 		private var state:Number;
 		private var numTicks:Number;
 		private var currentScreen:screen;
+		private var keyDown:Boolean;
 			
 		public function Game() {
 			super();
@@ -49,6 +53,8 @@ package
 			
 			//Handles mouse presses
 			this.addEventListener(TouchEvent.TOUCH, handleTouch);
+			this.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			this.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 			
 			//Start ticking
 			timer = new Timer(1000 / 30, 0);
@@ -83,14 +89,11 @@ package
 					//If the current screen has not been set or is not the menu
 					if (currentScreen == null || currentScreen.getType() != "mainMenu") {
 						
-						currentScreen = new tempScreen();
+						currentScreen = new mainMenuScreen();
 						addChild(currentScreen);
 						
-						temp = new tempObj();
-						addChild(temp);
-						
 					}
-					temp.tick();
+					
 					
 					break;
 					
@@ -99,9 +102,24 @@ package
 					break;
 					
 				case STATE_PLAY:
-					
-					break;
-			}
+					if (currentScreen == null || currentScreen.getType() != "play") {
+						
+						currentScreen = new tempScreen();
+						addChild(currentScreen);
+						
+						temp = new tempObj();
+						addChild(temp);
+					}
+					//currentScreen.tick();
+					temp.tick();
+					break
+				case STATE_PAUSE:
+					if (currentScreen == null || currentScreen.getType() != "pause") {
+						currentScreen = new pauseScreen();
+						addChild(currentScreen);
+					}
+				}
+			
 			
 			numTicks++;
 			
@@ -115,10 +133,65 @@ package
 			dispatchEvent(new Event("initComplete" , true));
 			
 		}
-		
+		private function onKeyDown(event:KeyboardEvent):void
+		{
+			//keycode 32 is spacebar
+			switch(state)
+			{
+				case STATE_INIT:
+					break;
+				case STATE_MENU:
+					keyDown = true;
+					removeChildren();
+					state = STATE_PLAY;
+					break;
+				case STATE_PLAY:
+					if(event.keyCode == 32){
+					
+						state = STATE_PAUSE;
+					}
+					break;
+				case STATE_PAUSE:
+					if(event.keyCode == 32){
+					removeChildren();
+					state = STATE_PLAY;
+					}
+					break;
+				case STATE_CREDITS:
+					if (event.keyCode == 82) {
+						
+					}
+					break;
+				case STATE_GAMEOVER:
+					state = STATE_CREDITS;
+					break;
+				case STATE_WIN:
+					state = STATE_CREDITS;
+					break;
+			}
+		}
+		private function onKeyUp(event:KeyboardEvent):void
+		{
+			switch(state)
+			{
+				case STATE_INIT:
+					keyDown == false;
+					break;
+				case STATE_MENU:
+					
+					keyDown = false;
+					break;
+				case STATE_PLAY:
+					keyDown = false;
+					break;
+				case STATE_PAUSE:
+					break;
+				case STATE_CREDITS:
+					break;
+			}
+		}
 		//Clean up after init
 		private function doneInit():void {
-			
 			trace("Done initializing.");
 			state = STATE_MENU;
 			
@@ -137,7 +210,11 @@ package
 					temp.handleTouch(touch);
 					
 				}
-				
+				if (state == STATE_PLAY) {
+					
+					temp.handleTouch(touch);
+					
+				}
 			}
 			
 		}

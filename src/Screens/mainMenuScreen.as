@@ -1,17 +1,31 @@
-package Screens 
-{
+package Screens {
+	import starling.display.Image;
 	/**
 	 * ...
-	 * @author Keven Abbott
+	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
 	 */
-	public class mainMenuScreen 
-	{
+	public class mainMenuScreen extends screen{
 		
-		public function mainMenuScreen() 
-		{
+		private var bg:Image;
+		
+		public function mainMenuScreen() {
+			
+			startScreen();
 			
 		}
 		
+		protected override function startScreen():void {
+			
+			bg = new Image(Assets.getTexture("mainMenuBG"));
+			this.addChild(bg);
+			
+		}
+		
+		public override function getType():String {
+			
+			return "mainMenu";
+			
+		}
 	}
 
 }
