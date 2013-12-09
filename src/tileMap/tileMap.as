@@ -9,8 +9,6 @@ package tileMap {
 		
 		public function tileMap() {
 			
-			loadMap(1);
-			
 		}
 		
 		public function tick() {
@@ -38,9 +36,15 @@ package tileMap {
 			
 		}
 		
+		public function getSize():int {
+			
+			return levelMap.getSize();
+			
+		}
+		
 		private function fillMap() {
 		
-		var i:int = 0;
+			var i:int = 0;
 			for (i = 0; i < levelMap.getSize(); i++) {
 				
 				this.addChild(levelMap.getItemAt(i));

@@ -11,6 +11,15 @@ package
 		[Embed(source="../Assets/temp.png")]
 		public static const temp:Class;
 		
+		[Embed(source="../Assets/Backgrounds/Simple Backgrounds/mildBlueBG.png")]
+		public static const mainMenuBG:Class;
+		
+		[Embed(source="../Assets/Backgrounds/Simple Backgrounds/pauseBG.png")]
+		public static const pauseBG:Class;
+		
+		[Embed(source="../Assets/Backgrounds/Simple Backgrounds/creditsBG.png")]
+		public static const creditsBG:Class;
+		
 		private static var gameTextures:Dictionary = new Dictionary();
 		private static var gameTextureAtlas:TextureAtlas;
 		

@@ -22,9 +22,9 @@ package tileMap.tiles {
 
 			if (rand <= .5) {
 
-				cliffSprite = new MovieClip(Assets.getTile().getTextures("cliff3"), 45);
+				cliffSprite = new MovieClip(Assets.getTile().getTextures("cliff3"), 1);
 			}else {
-				cliffSprite = new MovieClip(Assets.getTile().getTextures("cliff4"), 45);
+				cliffSprite = new MovieClip(Assets.getTile().getTextures("cliff4"), 1);
 			}
 
 			cliffSprite.x = Math.ceil(-cliffSprite.width/2);

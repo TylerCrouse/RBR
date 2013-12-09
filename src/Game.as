@@ -2,7 +2,7 @@ package
 {
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
-	import Objects.tempObj;
+	//import Objects.tempObj;
 	import Screens.*;
 	import Collections.*;
 	import starling.display.Image;
@@ -28,7 +28,7 @@ package
 		private static const STATE_GAMEOVER:Number = 6;
 		private static const STATE_WIN:Number = 7;
 		
-		private var temp:tempObj;
+		//private var temp:tempObj;
 		private var timer:Timer;
 		private var state:Number;
 		private var numTicks:Number;
@@ -98,21 +98,27 @@ package
 					break;
 					
 				case STATE_CREDITS:
-					
+					if (currentScreen == null || currentScreen.getType() != "credits") {
+						
+						currentScreen = new creditScreen();
+						addChild(currentScreen);
+						
+						
+					}
 					break;
 					
 				case STATE_PLAY:
-					if (currentScreen == null || currentScreen.getType() != "play") {
+					if (currentScreen == null || currentScreen.getType() != "gameScreen") {
 						
-						currentScreen = new tempScreen();
+						currentScreen = new gameScreen();
 						addChild(currentScreen);
 						
-						temp = new tempObj();
-						addChild(temp);
+						//temp = new tempObj();
+						//addChild(temp);
 					}
 					//currentScreen.tick();
-					temp.tick();
-					break
+					//temp.tick();
+					break;
 				case STATE_PAUSE:
 					if (currentScreen == null || currentScreen.getType() != "pause") {
 						currentScreen = new pauseScreen();
@@ -207,12 +213,12 @@ package
 				
 				if (state == STATE_MENU) {
 					
-					temp.handleTouch(touch);
+					currentScreen.handleTouch(touch);
 					
 				}
 				if (state == STATE_PLAY) {
 					
-					temp.handleTouch(touch);
+					currentScreen.handleTouch(touch);
 					
 				}
 			}
