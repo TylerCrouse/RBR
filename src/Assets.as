@@ -2,11 +2,22 @@ package
 {
 	import flash.display.Bitmap;
 	import flash.utils.Dictionary;
-	
+	import starling.utils.AssetManager;
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
 
 	public class Assets {
+		
+		private static var gameTextures:Dictionary = new Dictionary();
+		private static var gameTextureAtlas:TextureAtlas;
+		
+		private static var sprites:Dictionary = new Dictionary();
+		
+		private static var tileTextures:Dictionary = new Dictionary();
+		private static var tileTextureAtlas:TextureAtlas;
+		
+		[Embed(source="../Assets/temp.png")]
+		public static const temp:Class;
 		
 		[Embed(source="../Assets/Backgrounds/Simple Backgrounds/mildBlueBG.png")]
 		public static const mainMenuBG:Class;
@@ -17,11 +28,11 @@ package
 		[Embed(source="../Assets/Backgrounds/Simple Backgrounds/creditsBG.png")]
 		public static const creditsBG:Class;
 		
-		private static var gameTextures:Dictionary = new Dictionary();
-		private static var gameTextureAtlas:TextureAtlas;
+		[Embed(source="../Assets/Sprites/bugSprite.png")]	
+		public static const bugTexture:Class;
 		
-		private static var tileTextures:Dictionary = new Dictionary();
-		private static var tileTextureAtlas:TextureAtlas;
+		[Embed(source="../Assets/Sprites/bugSprite.xml", mimeType = "application/octet-stream")]
+		public static const bugXML:Class;
 		
 		[Embed(source="../Assets/Font Assets/Font Sheets/Font 1/Font 1.png")]
 		//[Embed(source="../Assets/sprites.png")]
@@ -78,6 +89,17 @@ package
 				gameTextures[name] = Texture.fromBitmap(bitmap);
 			}
 			return gameTextures[name];
+		}
+		
+		public static function getSprite(name:String):TextureAtlas
+		{
+			if (sprites[name] == undefined)
+			{
+				var texture:Texture = Texture.fromBitmap(new Assets[name + "Texture"]());
+				var xml:XML = XML(new Assets[name + "XML"]());
+				sprites[name] = new TextureAtlas(texture, xml);
+			}
+			return sprites[name];
 		}
 
 	}

@@ -26,8 +26,8 @@ package Objects
 			enemyobj.y = enemyobj.y + enemyVector.y*enemySpeed;
 			if (enemyobj.x < 32) enemyVector.x = enemyVector.x * -1;
 			if (enemyobj.x > 795) enemyVector.x = enemyVector.x * -1;
-			if (enemyobj.y < 64) enemyVector.y = enemyVector.y * -1;
-			if (enemyobj.y > 600-128) enemyVector.y = enemyVector.y * -1;
+			if (enemyobj.y < 96) enemyVector.y = enemyVector.y * -1;
+			if (enemyobj.y > 440) enemyVector.y = enemyVector.y * -1;
 		}
 		
 		public function changeVector(x:Number, y:Number):void {
