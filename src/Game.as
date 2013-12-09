@@ -157,6 +157,7 @@ package
 					}
 					else {
 						currentScreen.handleKeyDown(event);
+						currentScreen.handleKeyUp(event);
 					}
 					break;
 				case STATE_PAUSE:
