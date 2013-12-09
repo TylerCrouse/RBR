@@ -24,9 +24,9 @@ package Screens {
 		public override function tick(): void {
 			
 			numTicks++;
-			player.tick();
 			enemy1.tick();
 			move();
+			player.tick();
 			enemy1.checkCollision(player.bounds);
 		}
 		
@@ -35,14 +35,16 @@ package Screens {
 			//if keydown move map
 			if (leftDown) {
 				currentMap.moveMap(-3);
-				player.x -= -3;
-				enemy1.x -= -3;
-				player.setDestX(player.getDestX() + 3);
+				player.setX(3);
+				enemy1.x += 3;
+				player.destX = player.destX + 3;
+				
 			}else if (rightDown) {
 				currentMap.moveMap(3);
-				player.x -= 3;
-				enemy1.x -= 3;
-				player.setDestX(player.getDestX() - 3);
+				player.setX(-3);
+				enemy1.x += -3;
+				player.destX = player.destX - 3;
+
 			}
 		}
 		

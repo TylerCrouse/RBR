@@ -15,6 +15,7 @@ package Objects {
 		private var accel:Number;
 		private var damage:int;
 		private var health:int;
+		public var destX:Number = 0;
 		
 		public function gameObject() {
 			
@@ -25,6 +26,10 @@ package Objects {
 		}
 		
 		public function tick():void {
+			
+		}
+		
+		public function setX(x:Number) {
 			
 		}
 		
