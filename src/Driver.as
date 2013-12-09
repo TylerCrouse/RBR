@@ -6,10 +6,6 @@ package {
 	//import net.hires.debug.Stats;
 	[SWF(frameRate = "60", width = "800", height = "600", backgroundColor = "0xFF00FF")]
 	
-	/**
-	 * ...
-	 * @author Tyler Crouse and Ian Johnson
-	 */
 	public class Driver extends Sprite {
 		
 		//private var stats:Stats;

@@ -2,7 +2,6 @@ package
 {
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
-	import Objects.tempObj;
 	import Screens.*;
 	import Collections.*;
 	import starling.display.Image;
@@ -25,7 +24,6 @@ package
 		private static const STATE_CREDITS:Number = 3;
 		private static const STATE_PLAY:Number = 4;
 		
-		private var temp:tempObj;
 		private var timer:Timer;
 		private var state:Number;
 		private var numTicks:Number;
@@ -81,16 +79,14 @@ package
 				case STATE_MENU:
 					
 					//If the current screen has not been set or is not the menu
-					if (currentScreen == null || currentScreen.getType() != "mainMenu") {
+					if (currentScreen == null || currentScreen.getType() != "gameScreen") {
 						
-						currentScreen = new tempScreen();
+						currentScreen = new gameScreen();
 						addChild(currentScreen);
 						
-						temp = new tempObj();
-						addChild(temp);
-						
 					}
-					temp.tick();
+					
+					currentScreen.tick();
 					
 					break;
 					
@@ -134,7 +130,7 @@ package
 				
 				if (state == STATE_MENU) {
 					
-					temp.handleTouch(touch);
+					
 					
 				}
 				
