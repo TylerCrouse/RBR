@@ -157,12 +157,11 @@ package
 					}
 					else {
 						currentScreen.handleKeyDown(event);
-						currentScreen.handleKeyUp(event);
 					}
 					break;
 				case STATE_PAUSE:
 					if(event.keyCode == 32){
-						removeChildren();
+						
 						state = STATE_PLAY;
 					}
 					break;

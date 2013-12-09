@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:26e05ac618a9ae89c2fcb67d73e51fcf:1/1$ -->
+<TextureAtlas imagePath="bugSprite.png">
+    <SubTexture name="bug0" x="2" y="2" width="128" height="64"/>
+    <SubTexture name="bug1" x="2" y="68" width="128" height="64"/>
+    <SubTexture name="bug2" x="2" y="134" width="128" height="64"/>
+</TextureAtlas>
