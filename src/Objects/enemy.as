@@ -21,7 +21,7 @@ package Objects
 			
 		}
 		
-		public function move() {
+		private function move() {
 			enemyobj.x = enemyobj.x + enemyVector.x*enemySpeed;
 			enemyobj.y = enemyobj.y + enemyVector.y*enemySpeed;
 			if (enemyobj.x < 32) enemyVector.x = enemyVector.x * -1;
@@ -43,10 +43,14 @@ package Objects
 			var bounds:Rectangle;
 			bounds = enemyobj.bounds;
 			if (bounds.intersects(pos)) {
-				trace("hit confirmed");
+				//trace("hit confirmed");
 				return true;
 			}
 			return false;
+		}
+		
+		public function tick() {
+			move();
 		}
 		
 	}
