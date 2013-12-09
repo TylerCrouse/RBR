@@ -36,6 +36,17 @@ package Objects {
 			
 		}
 		
+		public function setDestX(x:Number):void {
+			
+			
+		}
+		
+		public function getDestX():Number {
+			
+			return 1;
+			
+		}
+		
 		public function onScreen(x:Number, y:Number):Boolean {
 			
 			return false;

@@ -141,7 +141,18 @@ package Objects {
                         }
                         
                 }
+				
+				public override function setDestX(x:Number):void {
+			
+					destX = x;
+			
+				}
+		
+				public override function getDestX():Number {
+			
+					return destX;
                 
-        }
+				}
+		}
 
 }

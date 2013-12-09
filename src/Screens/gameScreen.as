@@ -12,6 +12,8 @@ package Screens {
 		private var currentMap:tileMap;
 		private var player:gameObject;
 		private var enemy1:enemy;
+		private var leftDown:Boolean = false;
+		private var rightDown:Boolean = false;
 		
 		public function gameScreen() {
 			
@@ -25,13 +27,23 @@ package Screens {
 			player.tick();
 			enemy1.tick();
 			move();
-			
+			enemy1.checkCollision(player.bounds);
 		}
 		
 		private function move():void {
 			
 			//if keydown move map
-			
+			if (leftDown) {
+				currentMap.moveMap(-3);
+				player.x -= -3;
+				enemy1.x -= -3;
+				player.setDestX(player.getDestX() + 3);
+			}else if (rightDown) {
+				currentMap.moveMap(3);
+				player.x -= 3;
+				enemy1.x -= 3;
+				player.setDestX(player.getDestX() - 3);
+			}
 		}
 		
 		protected override function startScreen():void {
@@ -52,13 +64,25 @@ package Screens {
 		
 		public override function handleKeyDown(event:KeyboardEvent):void {
 			
-			
+			if (event.keyCode == 37) {
+				//move left
+				leftDown = true;
+			}else if (event.keyCode == 39) {
+				//move right
+				rightDown = true;
+			}
 			
 		}
 
 		public override function handleKeyUp(event:KeyboardEvent):void {
 			
-			
+			if (event.keyCode == 37) {
+				//move left
+				leftDown = false;
+			}else if (event.keyCode == 39) {
+				//move right
+				rightDown = false;
+			}
 			
 		}
 		
