@@ -137,7 +137,7 @@ package Objects {
                                         moveTowards(destX, destY);
                                         skip = 0;
                                 }
-                                trace("Moving");
+                                //trace("Moving");
                         }
                         
                 }

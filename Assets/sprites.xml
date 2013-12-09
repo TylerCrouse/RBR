@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:c683b7fcd864f912f41377f00a4137ca:1/1$ -->
-<TextureAtlas imagePath="sprites.png">
-    <SubTexture name="darkSand" x="2" y="2" width="64" height="64"/>
-    <SubTexture name="lightSand" x="2" y="68" width="64" height="64"/>
-    <SubTexture name="mediumSand" x="2" y="134" width="64" height="64"/>
-</TextureAtlas>

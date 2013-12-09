@@ -123,6 +123,8 @@ package
 						currentScreen = new pauseScreen();
 						addChild(currentScreen);
 					}
+					break;
+				
 				}
 			
 			
@@ -162,7 +164,7 @@ package
 				case STATE_PAUSE:
 					if(event.keyCode == 32){
 						
-						state = STATE_PLAY;
+						
 					}
 					break;
 				case STATE_CREDITS:

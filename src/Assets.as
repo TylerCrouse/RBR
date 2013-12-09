@@ -8,9 +8,6 @@ package
 
 	public class Assets {
 		
-		[Embed(source="../Assets/temp.png")]
-		public static const temp:Class;
-		
 		[Embed(source="../Assets/Backgrounds/Simple Backgrounds/mildBlueBG.png")]
 		public static const mainMenuBG:Class;
 		
