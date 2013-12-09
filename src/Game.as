@@ -113,11 +113,10 @@ package
 						currentScreen = new gameScreen();
 						addChild(currentScreen);
 						
-						//temp = new tempObj();
-						//addChild(temp);
 					}
-					//currentScreen.tick();
-					//temp.tick();
+					
+					currentScreen.tick();
+					
 					break;
 				case STATE_PAUSE:
 					if (currentScreen == null || currentScreen.getType() != "pause") {
