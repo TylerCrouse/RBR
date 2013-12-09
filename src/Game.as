@@ -155,16 +155,19 @@ package
 					
 						state = STATE_PAUSE;
 					}
+					else {
+						currentScreen.handleKeyDown(event);
+					}
 					break;
 				case STATE_PAUSE:
 					if(event.keyCode == 32){
-					removeChildren();
-					state = STATE_PLAY;
+						removeChildren();
+						state = STATE_PLAY;
 					}
 					break;
 				case STATE_CREDITS:
 					if (event.keyCode == 82) {
-						
+						state = STATE_MENU;
 					}
 					break;
 				case STATE_GAMEOVER:
@@ -183,15 +186,16 @@ package
 					keyDown == false;
 					break;
 				case STATE_MENU:
-					
 					keyDown = false;
 					break;
 				case STATE_PLAY:
 					keyDown = false;
 					break;
 				case STATE_PAUSE:
+					keyDown = false;
 					break;
 				case STATE_CREDITS:
+					keyDown = false;
 					break;
 			}
 		}
