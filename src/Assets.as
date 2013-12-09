@@ -16,9 +16,6 @@ package
 		private static var tileTextures:Dictionary = new Dictionary();
 		private static var tileTextureAtlas:TextureAtlas;
 		
-		[Embed(source="../Assets/temp.png")]
-		public static const temp:Class;
-		
 		[Embed(source="../Assets/Backgrounds/Simple Backgrounds/mildBlueBG.png")]
 		public static const mainMenuBG:Class;
 		
