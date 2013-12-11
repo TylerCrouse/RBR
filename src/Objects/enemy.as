@@ -1,5 +1,6 @@
 package Objects 
 {
+	import flash.display.Shape;
 	import flash.geom.Rectangle;
 	import starling.display.MovieClip;
 	import flash.geom.Point;
@@ -9,13 +10,14 @@ package Objects
 	{
 		private var enemyobj:MovieClip;
 		private var enemyVector:Point = new Point();
-		private var enemySpeed:Number = 1;
+		private var enemySpeed:Number;
 		
-		public function enemy(posx:Number, posy:Number, vecx:Number, vecy:Number){
-			enemyobj = new MovieClip(Assets.getAtlas().getTextures("C"), 10);
+		public function enemy(posx:Number, posy:Number, vecx:Number, vecy:Number, speed:Number = 1) {
 			
+			enemyobj = new MovieClip(Assets.getAtlas().getTextures("C"), 10);
 			enemyobj.x = posx;
 			enemyobj.y = posy;
+			enemySpeed = speed;
 			enemyVector = new Point(vecx, vecy);
 			this.addChild(enemyobj);
 			
@@ -43,7 +45,8 @@ package Objects
 			var bounds:Rectangle;
 			bounds = enemyobj.bounds;
 			if (bounds.intersects(pos)) {
-				//trace("hit confirmed");
+				var date:Date = new Date();
+				trace("hit confirmed " + date.minutes + ":" + date.seconds);
 				return true;
 			}
 			return false;

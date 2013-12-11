@@ -17,9 +17,9 @@ package tileMap {
 			
 		}
 		
-		public function loadMap(x:Number) {
+		public function loadMap() {
 			
-			levelMap = new tileCollector(x);
+			levelMap = new tileCollector();
 			fillMap();
 			
 		}

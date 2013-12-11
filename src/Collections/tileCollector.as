@@ -21,10 +21,9 @@ package  Collections {
 		var currLevel:Number;
 		private var objArray:Array;
 		
-		public function tileCollector(x:Number) {
+		public function tileCollector() {
 			
 			objArray = new Array();
-			currLevel = x;
 			loadLevel();
 			
 		}

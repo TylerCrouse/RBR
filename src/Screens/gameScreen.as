@@ -1,4 +1,7 @@
 package Screens {
+	import Collections.enemyCollector;
+	import levelData.levelLoader;
+	import levelData.levels.*;
 	import Objects.enemy;
 	import Objects.gameObject;
 	import Objects.playerObject;
@@ -9,14 +12,16 @@ package Screens {
 	public class gameScreen extends screen{
 		
 		private var numTicks:int = 0;
+		private var selectedLevel:int;
 		private var currentMap:tileMap;
 		private var player:gameObject;
-		private var enemy1:enemy;
+		private var enemies:enemyCollector;
 		private var leftDown:Boolean = false;
 		private var rightDown:Boolean = false;
 		
-		public function gameScreen() {
+		public function gameScreen(x:int) {
 			
+			selectedLevel = x;
 			startScreen();
 			
 		}
@@ -24,10 +29,10 @@ package Screens {
 		public override function tick(): void {
 			
 			numTicks++;
-			enemy1.tick();
+			enemies.tick();
 			move();
 			player.tick();
-			enemy1.checkCollision(player.bounds);
+			enemies.checkCollision(player.bounds);
 		}
 		
 		private function move():void {
@@ -36,13 +41,13 @@ package Screens {
 			if (leftDown) {
 				currentMap.moveMap(-3);
 				player.setX(3);
-				enemy1.x += 3;
+				enemies.moveEnemies(-3);
 				player.destX = player.destX + 3;
 				
 			}else if (rightDown) {
 				currentMap.moveMap(3);
 				player.setX(-3);
-				enemy1.x += -3;
+				enemies.moveEnemies(3);
 				player.destX = player.destX - 3;
 
 			}
@@ -50,15 +55,21 @@ package Screens {
 		
 		protected override function startScreen():void {
 			
-			currentMap = new tileMap();
-			currentMap.loadMap(1);
-			
 			player = new playerObject();
 			
-			enemy1 = new enemy(200, 200, 1, 1);
+			var loadLevel:levelLoader = new levelLoader();
+			var currLevel:level = loadLevel.loadLevel(selectedLevel);
+			
+			currentMap = currLevel.loadLevelMap();
+			enemies = currLevel.loadEnemyData();
 			
 			addChild(currentMap);
-			addChild(enemy1);
+			var i:int = 0;
+			for (i = 0; i < enemies.getSize(); i++){
+			
+				addChild(enemies.getItemAt(i));
+				
+			}
 			addChild(player);
 			trace("Adding game screen");
 			

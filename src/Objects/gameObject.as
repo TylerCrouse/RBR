@@ -4,7 +4,6 @@ package Objects {
 	import flash.geom.Rectangle;
 	import starling.display.DisplayObject;
 	import starling.display.Sprite;
-	import mathUtils.vector2D;
 	import starling.events.KeyboardEvent;
 	import starling.events.Touch;
 

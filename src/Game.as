@@ -1,7 +1,7 @@
 package  
 {
 	import flash.display.MovieClip;
-	import flash.events.MouseEvent;
+	//import flash.events.MouseEvent;
 	//import Objects.tempObj;
 	import Screens.*;
 	import Collections.*;
@@ -27,6 +27,7 @@ package
 		private static const STATE_PAUSE:Number = 5;
 		private static const STATE_GAMEOVER:Number = 6;
 		private static const STATE_WIN:Number = 7;
+		private static const STATE_LEVELSELECT:Number = 8;
 		
 		//private var temp:tempObj;
 		private var timer:Timer;
@@ -36,10 +37,9 @@ package
 		private var keyDown:Boolean;
 			
 		public function Game() {
-			super();
-			
 			
 			addEventListener(Event.ADDED_TO_STAGE, init);
+			
 		}
 		
 		public function init(event:Event):void {
@@ -89,6 +89,9 @@ package
 					//If the current screen has not been set or is not the menu
 					if (currentScreen == null || currentScreen.getType() != "mainMenu") {
 						
+						trace("In menu");
+						this.addEventListener("levelSelect", levelSelect);
+						
 						currentScreen = new mainMenuScreen();
 						addChild(currentScreen);
 						
@@ -98,6 +101,7 @@ package
 					break;
 					
 				case STATE_CREDITS:
+					
 					if (currentScreen == null || currentScreen.getType() != "credits") {
 						
 						currentScreen = new creditScreen();
@@ -105,43 +109,82 @@ package
 						
 						
 					}
+					
 					break;
 					
 				case STATE_PLAY:
+					
 					if (currentScreen == null || currentScreen.getType() != "gameScreen") {
 						
-						currentScreen = new gameScreen();
-						addChild(currentScreen);
+						play(new Event("play", false, 1));
 						
 					}
 					
-					currentScreen.tick();
-					
 					break;
+					
 				case STATE_PAUSE:
+					
 					if (currentScreen == null || currentScreen.getType() != "pause") {
 						currentScreen = new pauseScreen();
 						addChild(currentScreen);
 					}
+					
+					break;
+					
+				case STATE_LEVELSELECT:
+					
+					if (currentScreen == null || currentScreen.getType() != "levelSelect") {
+						
+						currentScreen = new selectScreen();
+						addChild(currentScreen);
+						
+					}
+					
 					break;
 				
-				}
-			
+			}
+				
+			if (currentScreen != null) {
+				currentScreen.tick();
+			}
 			
 			numTicks++;
+			
+		}
+		
+		private function levelSelect(ev:Event):void {
+			
+			currentScreen = null;
+			removeChildren();
+			removeEventListener("levelSelect", levelSelect);
+			
+			this.addEventListener("play", play);
+			
+			state = STATE_LEVELSELECT;
+			
+		}
+		
+		private function play(ev:Event):void {
+			
+			currentScreen = null;
+			removeChildren();
+			removeEventListener("play", play);
+			
+			state = STATE_PLAY;
+			currentScreen = new gameScreen(int(ev.data));
+			addChild(currentScreen);
 			
 		}
 		
 		//Do init things
 		private function startInit():void {
 			
-
-			
 			dispatchEvent(new Event("initComplete" , true));
 			
 		}
-		private function onKeyDown(event:KeyboardEvent):void
-		{
+		
+		private function onKeyDown(event:KeyboardEvent):void {
+			
 			//keycode 32 is spacebar
 			switch(state)
 			{
@@ -180,8 +223,8 @@ package
 					break;
 			}
 		}
-		private function onKeyUp(event:KeyboardEvent):void
-		{
+		
+		private function onKeyUp(event:KeyboardEvent):void{
 			switch(state)
 			{
 				case STATE_INIT:
@@ -207,6 +250,7 @@ package
 					break;
 			}
 		}
+		
 		//Clean up after init
 		private function doneInit():void {
 			trace("Done initializing.");
@@ -222,16 +266,7 @@ package
 			
 			if (touch) {
 				
-				if (state == STATE_MENU) {
-					
-					currentScreen.handleTouch(touch);
-					
-				}
-				if (state == STATE_PLAY) {
-					
-					currentScreen.handleTouch(touch);
-					
-				}
+				currentScreen.handleTouch(touch);
 			}
 			
 		}

@@ -19,6 +19,9 @@ package
 		[Embed(source="../Assets/Backgrounds/Simple Backgrounds/mildBlueBG.png")]
 		public static const mainMenuBG:Class;
 		
+		[Embed(source="../Assets/Backgrounds/Simple Backgrounds/selectLevelBG.png")]
+		public static const selectLevelBG:Class;
+		
 		[Embed(source="../Assets/Backgrounds/Simple Backgrounds/pauseBG.png")]
 		public static const pauseBG:Class;
 		

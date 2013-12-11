@@ -3,17 +3,17 @@ package Objects {
         import starling.display.MovieClip;
         import starling.events.Touch;
 
-        //Placeholder because testing
         public class playerObject extends gameObject{
                 
                 private var temp:MovieClip;
-                private var moveSpeed:Number = 4;
+                private var moveSpeed:Number = 10;
                 
                 private var xMov:Number = 0;
                 private var yMov:Number = 0;
                 
                 //public var destX:Number;
                 private var destY:Number;
+				private var offset:Number = 0;
                 
                 private var rotationSpeed:Number = .1;
                 private var rotationGoal:Number;
@@ -24,8 +24,8 @@ package Objects {
                 public function playerObject() {
                         
                         temp = new MovieClip(Assets.getAtlas().getTextures("A"), 10);
-                        temp.x = 250;
-                        temp.y = 200;
+                        temp.x = 50;
+                        temp.y = 300;
                         destX = temp.x;
                         destY = temp.y;
                         temp.rotation = 1.57079633;
@@ -37,6 +37,7 @@ package Objects {
 				public override function setX(x:Number) {
 					
 					temp.x += x;
+					offset += x;
 					
 				}
                 
@@ -126,10 +127,18 @@ package Objects {
                 }
                 
                 private function moveForward():void {
-                        
-                                temp.x= temp.x + xMov;
-                                temp.y = temp.y + yMov;
-                                
+				
+					if (!(temp.x < 64 + offset - xMov - temp.width/2 || temp.x > 1000 + offset - xMov - temp.width/2)) {
+						temp.x = temp.x + xMov;
+					}
+					
+					
+					
+					if (!(temp.y >= (600-128) - (temp.height/2) - yMov || temp.y <= 96 + (temp.height/2) - yMov)) {
+						temp.y = temp.y + yMov;
+					}
+					
+					
                 }
                 
                 private function move():void {
@@ -137,14 +146,14 @@ package Objects {
 
                         skip++;
 						var pt:Point = localToGlobal(new Point(temp.x, temp.y));
-                        if (temp.x >= destX - 5 && temp.x <= destX + 5 && temp.y >= destY - 5 && temp.y <= destY + 5) {
+                        if (temp.x >= destX - 10 && temp.x <= destX + 10 && temp.y >= destY - 10 && temp.y <= destY + 10) {
 							//("reach the destination at " + temp.x + " : " + temp.y);
                                 destX = temp.x;
                                 destY = temp.y;
                         }else {
                                 moveForward();
                                 //contRotation();
-                                if (skip >= 50) {
+                                if (skip >= 1) {
 									trace("destX is " + destX);
                                         turnToFace(destX, destY);
                                         moveTowards(destX, destY);
