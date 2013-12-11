@@ -59,7 +59,16 @@ package Screens {
 					trace("Dispatching levelSelect touched event.");
 					dispatchEvent(new Event("levelSelect", true));
 				}
-				
+				else if (creditText.getBounds(this.parent).containsPoint(point)){
+					trace("dispatch credits event");
+					dispatchEvent(new Event("creditSelect", true));
+			
+				}
+				else if (settingsText.getBounds(this.parent).containsPoint(point)){
+					trace("dispatch settings event");
+					dispatchEvent(new Event("settingsSelect", true));
+			
+				}
 			}
 			
 		}

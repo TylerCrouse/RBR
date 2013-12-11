@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:c932b53978749539744b9388963054d9:1/1$ -->
+<!-- $TexturePacker:SmartUpdate:b214e0859a73bea8fdc2bf8adc93f1f4:d3c12fbcbf906e678575e0d523a54ff1:1fbd6ae26c060ca85f5543f2819c596d$ -->
 <TextureAtlas imagePath="Font 1.png">
-    <SubTexture name="A" x="2" y="2" width="21" height="29"/>
-    <SubTexture name="B" x="25" y="2" width="20" height="29"/>
-    <SubTexture name="C" x="47" y="2" width="19" height="30"/>
-    <SubTexture name="D" x="68" y="2" width="20" height="29"/>
-    <SubTexture name="E" x="90" y="2" width="20" height="29"/>
-    <SubTexture name="F" x="112" y="2" width="20" height="29"/>
-    <SubTexture name="G" x="134" y="2" width="21" height="30"/>
-    <SubTexture name="H" x="157" y="2" width="21" height="29"/>
-    <SubTexture name="I" x="180" y="2" width="14" height="29"/>
-    <SubTexture name="J" x="196" y="2" width="19" height="29"/>
-    <SubTexture name="K" x="217" y="2" width="24" height="43"/>
-    <SubTexture name="L" x="2" y="47" width="19" height="29"/>
-    <SubTexture name="M" x="23" y="47" width="21" height="29"/>
-    <SubTexture name="N" x="46" y="47" width="21" height="29"/>
-    <SubTexture name="O" x="69" y="47" width="19" height="30"/>
-    <SubTexture name="P" x="90" y="47" width="20" height="29"/>
-    <SubTexture name="Q" x="112" y="47" width="19" height="33"/>
-    <SubTexture name="R" x="133" y="47" width="20" height="29"/>
-    <SubTexture name="S" x="155" y="47" width="18" height="30"/>
-    <SubTexture name="T" x="175" y="47" width="19" height="29"/>
-    <SubTexture name="U" x="196" y="47" width="20" height="30"/>
-    <SubTexture name="V" x="218" y="47" width="20" height="29"/>
-    <SubTexture name="W" x="2" y="82" width="21" height="29"/>
-    <SubTexture name="X" x="25" y="82" width="20" height="29"/>
-    <SubTexture name="Y" x="47" y="82" width="20" height="29"/>
-    <SubTexture name="Z" x="69" y="82" width="18" height="29"/>
-    <SubTexture name="creditText" x="89" y="82" width="156" height="33"/>
-    <SubTexture name="playText" x="2" y="117" width="80" height="33"/>
-    <SubTexture name="settingsText" x="84" y="117" width="156" height="33"/>
+    <SubTexture name="A" x="0" y="0" width="21" height="29"/>
+    <SubTexture name="B" x="21" y="0" width="20" height="29"/>
+    <SubTexture name="C" x="41" y="0" width="19" height="30"/>
+    <SubTexture name="D" x="60" y="0" width="20" height="29"/>
+    <SubTexture name="E" x="80" y="0" width="20" height="29"/>
+    <SubTexture name="F" x="100" y="0" width="20" height="29"/>
+    <SubTexture name="G" x="120" y="0" width="21" height="30"/>
+    <SubTexture name="H" x="141" y="0" width="21" height="29"/>
+    <SubTexture name="I" x="162" y="0" width="14" height="29"/>
+    <SubTexture name="J" x="176" y="0" width="19" height="29"/>
+    <SubTexture name="K" x="195" y="0" width="24" height="43"/>
+    <SubTexture name="L" x="219" y="0" width="19" height="29"/>
+    <SubTexture name="M" x="0" y="43" width="21" height="29"/>
+    <SubTexture name="N" x="21" y="43" width="21" height="29"/>
+    <SubTexture name="O" x="42" y="43" width="19" height="30"/>
+    <SubTexture name="P" x="61" y="43" width="20" height="29"/>
+    <SubTexture name="Q" x="81" y="43" width="19" height="33"/>
+    <SubTexture name="R" x="100" y="43" width="20" height="29"/>
+    <SubTexture name="S" x="120" y="43" width="18" height="30"/>
+    <SubTexture name="T" x="138" y="43" width="19" height="29"/>
+    <SubTexture name="U" x="157" y="43" width="20" height="30"/>
+    <SubTexture name="V" x="177" y="43" width="20" height="29"/>
+    <SubTexture name="W" x="197" y="43" width="21" height="29"/>
+    <SubTexture name="X" x="218" y="43" width="20" height="29"/>
+    <SubTexture name="Y" x="0" y="76" width="20" height="29"/>
+    <SubTexture name="Z" x="20" y="76" width="18" height="29"/>
+    <SubTexture name="backText" x="38" y="76" width="128" height="64"/>
+    <SubTexture name="creditText" x="0" y="140" width="156" height="33"/>
+    <SubTexture name="levelSelectText" x="0" y="173" width="256" height="64"/>
+    <SubTexture name="playText" x="0" y="237" width="80" height="33"/>
+    <SubTexture name="settingsText" x="80" y="237" width="156" height="33"/>
 </TextureAtlas>

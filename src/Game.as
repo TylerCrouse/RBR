@@ -28,6 +28,7 @@ package
 		private static const STATE_GAMEOVER:Number = 6;
 		private static const STATE_WIN:Number = 7;
 		private static const STATE_LEVELSELECT:Number = 8;
+		private static const STATE_SETTINGS:Number = 9;
 		
 		//private var temp:tempObj;
 		private var timer:Timer;
@@ -88,10 +89,9 @@ package
 					
 					//If the current screen has not been set or is not the menu
 					if (currentScreen == null || currentScreen.getType() != "mainMenu") {
-						
-						trace("In menu");
 						this.addEventListener("levelSelect", levelSelect);
-						
+						//this.addEventListener("settingsSelect", settingsSelect);
+						this.addEventListener("creditSelect", creditSelect);
 						currentScreen = new mainMenuScreen();
 						addChild(currentScreen);
 						
@@ -103,7 +103,7 @@ package
 				case STATE_CREDITS:
 					
 					if (currentScreen == null || currentScreen.getType() != "credits") {
-						
+						this.addEventListener("menuSelect", menuSelect);
 						currentScreen = new creditScreen();
 						addChild(currentScreen);
 						
@@ -163,7 +163,36 @@ package
 			state = STATE_LEVELSELECT;
 			
 		}
+		private function settingsSelect(ev:Event):void {
+			
+			currentScreen = null;
+			removeChildren();
+			removeEventListener("settingsSelect", settingsSelect);
+			
+			//this.addEventListener("play", play);
+			
+			state = STATE_SETTINGS;
+			
+		}
 		
+		private function creditSelect(ev:Event):void {
+			
+			currentScreen = null;
+			removeChildren();
+			removeEventListener("credits", creditSelect);
+			
+			state = STATE_CREDITS;
+			
+		}
+		private function menuSelect(ev:Event):void {
+			
+			currentScreen = null;
+			removeChildren();
+			removeEventListener("menuSelect", menuSelect);
+			
+			state = STATE_MENU;
+			
+		}
 		private function play(ev:Event):void {
 			
 			currentScreen = null;
