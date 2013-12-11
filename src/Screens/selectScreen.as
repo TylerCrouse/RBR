@@ -15,6 +15,7 @@ package Screens {
 		private var level2Text:MovieClip;
 		private var level3Text:MovieClip;
 		private var level4Text:MovieClip;
+		private var backButton:MovieClip;
 		
 		public function selectScreen() {
 			
@@ -31,6 +32,10 @@ package Screens {
 			level2Text = new MovieClip(Assets.getAtlas().getTextures("T"), 10);
 			level3Text = new MovieClip(Assets.getAtlas().getTextures("S"), 10);
 			level4Text = new MovieClip(Assets.getAtlas().getTextures("N"), 10);
+			backButton = new MovieClip(Assets.getAtlas().getTextures("backText"), 10);
+			
+			backButton.y = 500;
+		
 			
 			level1Text.x = 100;
 			level1Text.y = 200;
@@ -48,6 +53,7 @@ package Screens {
 			addChild(level2Text);
 			addChild(level3Text);
 			addChild(level4Text);
+			addChild(backButton);
 			
 		}
 		
@@ -61,6 +67,10 @@ package Screens {
 					trace("Dispatching levelSelect touched event.");
 					var ev:Event = new Event("play", true, 1);
 					dispatchEvent(ev);
+				}
+				else if (backButton.getBounds(this.parent).containsPoint(point)) {
+					trace("Dispatching 'back to menu' touched event.");
+					dispatchEvent(new Event("menuSelect", true));
 				}
 				
 			}

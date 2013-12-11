@@ -134,7 +134,7 @@ package
 				case STATE_LEVELSELECT:
 					
 					if (currentScreen == null || currentScreen.getType() != "levelSelect") {
-						
+						this.addEventListener("menuSelect", menuSelect);
 						currentScreen = new selectScreen();
 						addChild(currentScreen);
 						
