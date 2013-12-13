@@ -36,6 +36,8 @@ package
 		private var numTicks:Number;
 		private var currentScreen:screen;
 		private var keyDown:Boolean;
+		private var soundMenu:soundPlayer;
+		private var soundPlay:soundPlayer;
 			
 		public function Game() {
 			
@@ -61,9 +63,6 @@ package
 			timer = new Timer(1000 / 30, 0);
 			timer.addEventListener(TimerEvent.TIMER, tick);
 			timer.start();
-			
-			var sound:soundPlayer = new soundPlayer();
-			sound.playSound("mainMenu");
 			
 		}
 		
@@ -197,6 +196,11 @@ package
 		}
 		private function play(ev:Event):void {
 			
+			soundMenu.stopSound();
+			
+			soundPlay = new soundPlayer();
+			soundPlay.playSound("play");
+			
 			currentScreen = null;
 			removeChildren();
 			removeEventListener("play", play);
@@ -285,6 +289,8 @@ package
 		//Clean up after init
 		private function doneInit():void {
 			trace("Done initializing.");
+			soundMenu = new soundPlayer();
+			soundMenu.playSound("mainMenu");
 			state = STATE_MENU;
 			
 		}

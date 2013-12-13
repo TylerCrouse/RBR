@@ -67,7 +67,6 @@ package Screens {
 				else if (settingsText.getBounds(this.parent).containsPoint(point)){
 					trace("dispatch settings event");
 					dispatchEvent(new Event("settingsSelect", true));
-			
 				}
 			}
 			
