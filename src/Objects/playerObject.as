@@ -139,7 +139,7 @@ package Objects {
                 
                 private function moveForward():void {
 				
-					if (!(temp.x < 64 + offset - xMov - temp.width/2 || temp.x > (43*64) + offset - xMov - temp.width/2)) {
+					if (!(temp.x < 64 + offset - xMov - temp.width/2 || temp.x > (41*64) + offset - xMov + temp.width/2)) {
 						temp.x = temp.x + xMov;
 					}
 					

@@ -39,16 +39,16 @@ package Screens {
 			
 			//if keydown move map
 			if (leftDown) {
-				currentMap.moveMap(-3);
-				player.setX(3);
-				enemies.moveEnemies(-3);
-				player.destX = player.destX + 3;
+				currentMap.moveMap(-7);
+				player.setX(7);
+				enemies.moveEnemies(-7);
+				player.destX = player.destX + 7;
 				
 			}else if (rightDown) {
-				currentMap.moveMap(3);
-				player.setX(-3);
-				enemies.moveEnemies(3);
-				player.destX = player.destX - 3;
+				currentMap.moveMap(7);
+				player.setX(-7);
+				enemies.moveEnemies(7);
+				player.destX = player.destX - 7;
 
 			}
 		}

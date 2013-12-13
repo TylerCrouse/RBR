@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:137e1b0eefbf881bd7988726a91f715a:1/1$ -->
+<!-- $TexturePacker:SmartUpdate:c7462b814195428affa542f63f565e8c:1/1$ -->
 <TextureAtlas imagePath="tileSprites.png">
     <SubTexture name="cliff1" x="2" y="2" width="64" height="64"/>
     <SubTexture name="cliff2" x="68" y="2" width="64" height="64"/>
     <SubTexture name="cliff3" x="134" y="2" width="64" height="64"/>
-    <SubTexture name="cliff4" x="2" y="68" width="64" height="64"/>
-    <SubTexture name="cliff5" x="68" y="68" width="64" height="64"/>
-    <SubTexture name="cliffCorner" x="134" y="68" width="64" height="64"/>
-    <SubTexture name="cliffCorner1" x="2" y="134" width="64" height="64"/>
-    <SubTexture name="cliffCorner2" x="68" y="134" width="64" height="64"/>
-    <SubTexture name="dirt1" x="134" y="134" width="64" height="64"/>
-    <SubTexture name="dirt2" x="2" y="200" width="64" height="64"/>
-    <SubTexture name="dirtToSand1" x="68" y="200" width="64" height="64"/>
-    <SubTexture name="dirtToSand2" x="134" y="200" width="64" height="64"/>
-    <SubTexture name="dirtToSand3" x="2" y="266" width="64" height="64"/>
-    <SubTexture name="grass1" x="68" y="266" width="64" height="64"/>
-    <SubTexture name="sand1" x="134" y="266" width="64" height="64"/>
-    <SubTexture name="sand2" x="2" y="332" width="64" height="64"/>
-    <SubTexture name="sand3" x="68" y="332" width="64" height="64"/>
+    <SubTexture name="cliff4" x="200" y="2" width="64" height="64"/>
+    <SubTexture name="cliff5" x="266" y="2" width="64" height="64"/>
+    <SubTexture name="cliff6" x="332" y="2" width="64" height="64"/>
+    <SubTexture name="cliffCorner" x="398" y="2" width="64" height="64"/>
+    <SubTexture name="cliffCorner1" x="2" y="68" width="64" height="64"/>
+    <SubTexture name="cliffCorner2" x="68" y="68" width="64" height="64"/>
+    <SubTexture name="cliffCorner3" x="134" y="68" width="64" height="64"/>
+    <SubTexture name="cliffCorner4" x="200" y="68" width="64" height="64"/>
+    <SubTexture name="dirt1" x="266" y="68" width="64" height="64"/>
+    <SubTexture name="dirt2" x="332" y="68" width="64" height="64"/>
+    <SubTexture name="dirtToSand1" x="398" y="68" width="64" height="64"/>
+    <SubTexture name="dirtToSand2" x="2" y="134" width="64" height="64"/>
+    <SubTexture name="dirtToSand3" x="68" y="134" width="64" height="64"/>
+    <SubTexture name="finish1" x="134" y="134" width="64" height="64"/>
+    <SubTexture name="finish2" x="200" y="134" width="64" height="64"/>
+    <SubTexture name="grass1" x="266" y="134" width="64" height="64"/>
+    <SubTexture name="sand1" x="332" y="134" width="64" height="64"/>
+    <SubTexture name="sand2" x="398" y="134" width="64" height="64"/>
+    <SubTexture name="sand3" x="2" y="200" width="64" height="64"/>
 </TextureAtlas>
