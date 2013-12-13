@@ -12,6 +12,7 @@ package
 		private static var gameTextureAtlas:TextureAtlas;
 		
 		private static var sprites:Dictionary = new Dictionary();
+		private static var spriteAtlas:TextureAtlas;
 		
 		private static var tileTextures:Dictionary = new Dictionary();
 		private static var tileTextureAtlas:TextureAtlas;
@@ -91,13 +92,23 @@ package
 			return gameTextures[name];
 		}
 		
-		public static function getSprite(name:String):TextureAtlas
-		{
-			if (sprites[name] == undefined)
+		public static function getSpriteAtlas():TextureAtlas {
+			
+			if (tileTextureAtlas == null)
 			{
-				var texture:Texture = Texture.fromBitmap(new Assets[name + "Texture"]());
-				var xml:XML = XML(new Assets[name + "XML"]());
-				sprites[name] = new TextureAtlas(texture, xml);
+				var texture:Texture = getTexture("bugTexture");
+				var xml:XML = XML(new bugXML());
+				spriteAtlas = new TextureAtlas(texture, xml);
+			}
+			return spriteAtlas;
+		}
+
+		public static function getSprite(name:String):Texture {
+			
+			if (tileTextures[name] == undefined)
+			{
+				var bitmap:Bitmap = new Assets[name]();
+				sprites[name] = Texture.fromBitmap(bitmap);
 			}
 			return sprites[name];
 		}

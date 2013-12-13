@@ -2,6 +2,7 @@ package Objects {
         import flash.geom.Point;
         import starling.display.MovieClip;
         import starling.events.Touch;
+		import starling.core.Starling;
 
         public class playerObject extends gameObject{
                 
@@ -19,18 +20,28 @@ package Objects {
                 private var rotationGoal:Number;
                 
                 private var skip:int = 0;
-                private var rotOffset:Number = 1.57079633;
+                private var rotOffset:Number = 1.57;
                 
                 public function playerObject() {
                         
-                        temp = new MovieClip(Assets.getAtlas().getTextures("A"), 10);
+                        temp = new MovieClip(Assets.getSpriteAtlas().getTextures("bug"), 25);
+						
                         temp.x = 50;
                         temp.y = 300;
+						
                         destX = temp.x;
                         destY = temp.y;
-                        temp.rotation = 1.57079633;
+						
+                        temp.rotation = 1.57;
+						
                         temp.alignPivot();
+						
+						temp.scaleX = .35;
+						temp.scaleY = .35;
+						
                         this.addChild(temp);
+						
+						Starling.juggler.add(temp);
                         
                 }
 				
@@ -55,8 +66,8 @@ package Objects {
 							trace(touch.toString());
 							var pt:Point = new Point(touch.globalX, touch.globalY);	
 							//pt = localToGlobal(pt);
-							trace("Touched at : " + pt.x + ", " + pt.y);
-							trace("Object at : " + temp.x + ", " + temp.y);
+							//trace("Touched at : " + pt.x + ", " + pt.y);
+							//trace("Object at : " + temp.x + ", " + temp.y);
 							turnToFace(pt.x, pt.y);
 							moveTowards(pt.x, pt.y);
 						}
@@ -94,7 +105,7 @@ package Objects {
                         destX = x;
                         destY = y;
                         var angle:Number = temp.rotation * (180 / Math.PI);
-                       // trace("Angle is " + angle);
+                       trace("Angle is " + angle);
                         
                         if (angle <= 90 && angle >= 0) {
                                 
@@ -128,7 +139,7 @@ package Objects {
                 
                 private function moveForward():void {
 				
-					if (!(temp.x < 64 + offset - xMov - temp.width/2 || temp.x > 1000 + offset - xMov - temp.width/2)) {
+					if (!(temp.x < 64 + offset - xMov - temp.width/2 || temp.x > (43*64) + offset - xMov - temp.width/2)) {
 						temp.x = temp.x + xMov;
 					}
 					
@@ -150,11 +161,13 @@ package Objects {
 							//("reach the destination at " + temp.x + " : " + temp.y);
                                 destX = temp.x;
                                 destY = temp.y;
+								temp.stop();
                         }else {
+								temp.play();
                                 moveForward();
                                 //contRotation();
                                 if (skip >= 1) {
-									trace("destX is " + destX);
+									//trace("destX is " + destX);
                                         turnToFace(destX, destY);
                                         moveTowards(destX, destY);
                                         skip = 0;

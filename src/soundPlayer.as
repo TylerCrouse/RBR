@@ -16,7 +16,7 @@ package  {
 		public function playSound(soundName:String):void {
 			
 			trace("Playing sound");
-			if(soundName == "menuMusic"){
+			if(soundName == "mainMenu"){
 			
 				s.play();
 			

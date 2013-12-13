@@ -62,6 +62,8 @@ package
 			timer.addEventListener(TimerEvent.TIMER, tick);
 			timer.start();
 			
+			var sound:soundPlayer = new soundPlayer();
+			sound.playSound("mainMenu");
 			
 		}
 		
