@@ -34,7 +34,7 @@ package levelData.levels {
 			var enemies:enemyCollector = new enemyCollector();
 			
 			var enemyLevel = 0;
-			var enemyCount = 11 + numEnemies;
+			var enemyCount = 21 + (numEnemies % 10);
 			
 			while (numEnemies > 0) {
 				
