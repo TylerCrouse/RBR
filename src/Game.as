@@ -232,7 +232,8 @@ package
 
 		}
 		private function menuSelect(ev:Event):void {
-			
+			if (soundPlay) { soundPlay.stopSound(); }
+			if (!soundMenu) { soundMenu.playSound("mainMenu");  }
 			currentScreen = null;
 			removeChildren();
 			removeEventListener("menuSelect", menuSelect);
@@ -241,7 +242,7 @@ package
 			
 		}
 		private function play(ev:Event):void {
-			
+			if (soundPlay) { soundPlay.stopSound(); }
 			soundMenu.stopSound();
 			currentLvl = int(ev.data);
 			soundPlay = new soundPlayer();

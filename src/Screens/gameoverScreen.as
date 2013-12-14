@@ -23,7 +23,7 @@ package Screens {
 			
 			bg = new Image(Assets.getTexture("gameoverBG"));
 			backButton = new MovieClip(Assets.getAtlas().getTextures("backText"), 10);
-			backButton.y = 100;
+			backButton.y = 130;
 			backButton.x = 650;
 			
 			this.addChild(bg);
@@ -46,6 +46,7 @@ package Screens {
 				var point:Point = touch.getLocation(this);
 				
 				if (backButton.getBounds(this.parent).containsPoint(point)) {
+					
 					trace("Dispatching 'back to menu' touched event.");
 					dispatchEvent(new Event("menuSelect", true));
 				}
