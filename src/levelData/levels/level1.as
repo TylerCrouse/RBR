@@ -27,7 +27,7 @@ package levelData.levels {
 			enemies.addItem(new enemy(200, 400, 1, 1, 4));
 			enemies.addItem(new enemy(290, 300, -1, 1, 3));
 			enemies.addItem(new enemy(190, 300, -1, -1, 6));
-			enemies.addItem(new enemy(600, 300, 1, -1, 9));
+			enemies.addItem(new enemy(600, 300, 0, -1, 9));
 			return enemies;
 			
 		}

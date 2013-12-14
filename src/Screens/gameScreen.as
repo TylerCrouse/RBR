@@ -1,5 +1,6 @@
 package Screens {
 	import Collections.enemyCollector;
+	import flash.geom.Point;
 	import levelData.levelLoader;
 	import levelData.levels.*;
 	import Objects.enemy;
@@ -29,10 +30,12 @@ package Screens {
 		public override function tick(): void {
 			
 			numTicks++;
+			player.tick();
+			collision = enemies.checkCollision(player.bounds);
 			enemies.tick();
 			move();
-			player.tick();
-			enemies.checkCollision(player.bounds);
+			
+			
 		}
 		
 		private function move():void {
@@ -43,6 +46,7 @@ package Screens {
 				player.setX(7);
 				enemies.moveEnemies(-7);
 				player.destX = player.destX + 7;
+				
 				
 			}else if (rightDown) {
 				currentMap.moveMap(7);

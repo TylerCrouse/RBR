@@ -27,7 +27,7 @@ package Objects
 			enemyobj.x = enemyobj.x + enemyVector.x*enemySpeed;
 			enemyobj.y = enemyobj.y + enemyVector.y*enemySpeed;
 			if (enemyobj.x < 32) enemyVector.x = enemyVector.x * -1;
-			if (enemyobj.x > 795) enemyVector.x = enemyVector.x * -1;
+			if (enemyobj.x > 2496) enemyVector.x = enemyVector.x * -1;
 			if (enemyobj.y < 96) enemyVector.y = enemyVector.y * -1;
 			if (enemyobj.y > 440) enemyVector.y = enemyVector.y * -1;
 		}
@@ -43,7 +43,12 @@ package Objects
 		
 		public function checkCollision(pos:Rectangle):Boolean {
 			var bounds:Rectangle;
-			bounds = enemyobj.bounds;
+			var newPoint:Point = localToGlobal(new Point(enemyobj.x, enemyobj.y));
+			bounds = new Rectangle(newPoint.x, newPoint.y, enemyobj.bounds.width, enemyobj.bounds.height);
+			pos.height = 20;
+			pos.width = 40;
+			
+			
 			if (bounds.intersects(pos)) {
 				var date:Date = new Date();
 				trace("hit confirmed " + date.minutes + ":" + date.seconds);
