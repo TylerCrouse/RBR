@@ -38,6 +38,7 @@ package
 		private var numTicks:Number;
 		private var tempTicks:Number;
 		private var currentScreen:screen;
+		private var pause:screen;
 		private var keyDown:Boolean;
 		private var soundMenu:soundPlayer;
 		private var soundPlay:soundPlayer;
@@ -153,9 +154,9 @@ package
 					
 				case STATE_PAUSE:
 					
-					if (currentScreen == null || currentScreen.getType() != "pause") {
-						currentScreen = new pauseScreen();
-						addChild(currentScreen);
+					if (pause == null) {
+						pause = new pauseScreen();
+						addChild(pause);
 					}
 					
 					break;
@@ -183,7 +184,7 @@ package
 				
 			}
 				
-			if (currentScreen != null) {
+			if (currentScreen != null && state != STATE_PAUSE) {
 				currentScreen.tick();
 			}
 			
@@ -259,9 +260,10 @@ package
 			state = STATE_PAUSE;
 		}
 		private function unPauseGame():void {
+			trace("unpause");
 			soundPlay.stopSound();
-			
-			removeChild(currentScreen);
+			removeChild(pause);
+			pause = null;
 			state = STATE_PLAY;
 		}
 		
