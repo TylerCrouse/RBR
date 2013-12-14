@@ -8,6 +8,7 @@ package Screens {
 	//All screen types extend this
 	//They must override all functions or give the default functionality
 	public class screen extends Sprite {
+		public var collision:Boolean = false;
 		
 		protected function startScreen():void {
 		}

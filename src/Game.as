@@ -34,6 +34,7 @@ package
 		private var timer:Timer;
 		private var state:Number;
 		private var numTicks:Number;
+		private var tempTicks:Number;
 		private var currentScreen:screen;
 		private var keyDown:Boolean;
 		private var soundMenu:soundPlayer;
@@ -132,6 +133,10 @@ package
 						play(new Event("play", false, 1));
 						
 					}
+					else if(currentScreen.collision) { 
+						state = STATE_GAMEOVER;
+						tempTicks = numTicks;
+					}
 					
 					break;
 					
@@ -151,6 +156,20 @@ package
 						currentScreen = new selectScreen();
 						addChild(currentScreen);
 						
+					}
+					
+					break;
+					
+				case STATE_GAMEOVER:
+					
+					if (currentScreen == null || currentScreen.getType() != "gameover") {
+						this.addEventListener("gameover", gameOver);
+						currentScreen = new gameoverScreen();
+						addChild(currentScreen);
+					}
+					if (tempTicks + 90 <= numTicks) {
+						state = STATE_MENU;
+						currentScreen = null;
 					}
 					
 					break;
@@ -195,6 +214,13 @@ package
 			
 			state = STATE_CREDITS;
 			
+		}
+		private function gameOver(ev:Event):void {
+			currentScreen = null;
+			removeChildren();
+			removeEventListener("gameover", gameOver);
+			
+			state = STATE_GAMEOVER;
 		}
 		private function menuSelect(ev:Event):void {
 			

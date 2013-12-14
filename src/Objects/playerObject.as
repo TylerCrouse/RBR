@@ -61,9 +61,9 @@ package Objects {
                 
                 public override function handleTouch(touch:Touch):void {
 
-                        trace("Object is handling a touch");
+                        //trace("Object is handling a touch");
                         if (touch) {
-							trace(touch.toString());
+							//trace(touch.toString());
 							var pt:Point = new Point(touch.globalX, touch.globalY);	
 							//pt = localToGlobal(pt);
 							//trace("Touched at : " + pt.x + ", " + pt.y);
@@ -77,7 +77,7 @@ package Objects {
                 
                 private function turnToFace(x:Number, y:Number):void {
                         
-						trace("turning to face " + temp.x + " " + temp.y);
+						//trace("turning to face " + temp.x + " " + temp.y);
 						
                         var dx:Number = x - temp.x;
                         var dy:Number = y - temp.y;
@@ -105,7 +105,7 @@ package Objects {
                         destX = x;
                         destY = y;
                         var angle:Number = temp.rotation * (180 / Math.PI);
-                       trace("Angle is " + angle);
+                       //trace("Angle is " + angle);
                         
                         if (angle <= 90 && angle >= 0) {
                                 
