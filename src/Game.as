@@ -261,7 +261,6 @@ package
 		}
 		private function unPauseGame():void {
 			trace("unpause");
-			soundPlay.stopSound();
 			removeChild(pause);
 			pause = null;
 			state = STATE_PLAY;
