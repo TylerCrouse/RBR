@@ -67,7 +67,9 @@ package Screens {
 					//trace("Dispatching levelSelect touched event.");
 					//var ev:Event = new Event("play", true, 1);
 					//dispatchEvent(ev);
-					numEnemies--;
+					if(numEnemies > 0){
+						numEnemies--;
+					}
 					myText.text = numEnemies.toString();
 					myText.redraw();
 					
