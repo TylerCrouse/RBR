@@ -291,7 +291,7 @@ package
 					}
 					break;
 				case STATE_GAMEOVER:
-						if (tempTicks + 70 <= numTicks){
+						if (tempTicks + 50 <= numTicks){
 							soundPlay.stopSound();
 							state = STATE_MENU;
 							soundMenu.playSound("mainMenu");

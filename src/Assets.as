@@ -41,6 +41,9 @@ package
 		[Embed(source="../Assets/Sprites/bugSprite.xml", mimeType = "application/octet-stream")]
 		public static const bugXML:Class;
 		
+		[Embed(source="../Assets/Sprites/enemyBallSprite.png")]	
+		public static const enemyTexture:Class;
+		
 		[Embed(source="../Assets/Font Assets/Font Sheets/Font 1/Font 1.png")]
 		//[Embed(source="../Assets/sprites.png")]
 		public static const AtlasTextureGame:Class;

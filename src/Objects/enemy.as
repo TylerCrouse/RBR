@@ -14,7 +14,7 @@ package Objects
 		
 		public function enemy(posx:Number, posy:Number, vecx:Number, vecy:Number, speed:Number = 1) {
 			
-			enemyobj = new MovieClip(Assets.getAtlas().getTextures("C"), 10);
+			enemyobj = new MovieClip(Assets.getAtlas().getTextures("enemyBallSprite"), 10);
 			enemyobj.x = posx;
 			enemyobj.y = posy;
 			enemySpeed = speed;
