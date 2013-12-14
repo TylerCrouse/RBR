@@ -17,6 +17,8 @@ package
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 	import starling.core.Starling;
+	import bitmasq.Gamepad;
+	import bitmasq.GamepadEvent;
 	
 	public class Game extends Sprite {
 		
@@ -39,6 +41,7 @@ package
 		private var keyDown:Boolean;
 		private var soundMenu:soundPlayer;
 		private var soundPlay:soundPlayer;
+		
 			
 		public function Game() {
 			
@@ -50,6 +53,9 @@ package
 			
 			trace("Initializing");
 			removeEventListener(Event.ADDED_TO_STAGE, init);
+			
+			
+			Gamepad.get().addEventListener(GamepadEvent.CHANGE, onChange);
 			
 			//Changes the state to INIT
 			state = STATE_INIT;
@@ -353,6 +359,29 @@ package
 			if (touch) {
 				
 				currentScreen.handleTouch(touch);
+			}
+			
+		}
+		
+				private function onChange(event:GamepadEvent):void {
+			
+			if (event.control == Gamepad.LT && event.value == 1) {
+				onKeyDown(new KeyboardEvent("null", 0, 37));
+			}else if(event.control == Gamepad.LT && event.value == 0){
+				onKeyUp(new KeyboardEvent("null", 0, 37));
+			}
+			
+			if (event.control == Gamepad.RT && event.value == 1) {
+				onKeyDown(new KeyboardEvent("null", 0, 39));
+			}else if(event.control == Gamepad.RT && event.value == 0){
+				onKeyUp(new KeyboardEvent("null", 0, 39));
+			}
+			
+			if (event.control == Gamepad.RSTICK_X || event.control == Gamepad.RSTICK_X) {
+				
+				trace("Right stick is doing shit");
+				currentScreen.handleJoystick(event);
+				
 			}
 			
 		}

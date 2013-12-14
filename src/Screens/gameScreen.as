@@ -1,4 +1,6 @@
 package Screens {
+	import bitmasq.Gamepad;
+	import bitmasq.GamepadEvent;
 	import Collections.enemyCollector;
 	import flash.geom.Point;
 	import flash.text.TextField;
@@ -114,6 +116,12 @@ package Screens {
 				
 			}
 			
+			
+		}
+		
+		public override function handleJoystick(event:GamepadEvent):void {
+			
+			player.handleJoystick(event);
 			
 		}
 		

@@ -1,5 +1,6 @@
 package Objects {
 	
+	import bitmasq.GamepadEvent;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	import starling.display.DisplayObject;
@@ -65,6 +66,10 @@ package Objects {
 		
 		public function moveTo(x:int, y:int):void {
 			
+			
+		}
+		
+		public function handleJoystick(event:GamepadEvent):void {
 			
 		}
 		

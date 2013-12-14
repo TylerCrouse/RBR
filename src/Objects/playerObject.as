@@ -1,4 +1,5 @@
 package Objects {
+		import bitmasq.GamepadEvent;
         import flash.geom.Point;
         import starling.display.MovieClip;
         import starling.events.Touch;
@@ -143,8 +144,6 @@ package Objects {
 						temp.x = temp.x + xMov;
 					}
 					
-					
-					
 					if (!(temp.y >= (600-128) - (temp.height/2) - yMov || temp.y <= 96 + (temp.height/2) - yMov)) {
 						temp.y = temp.y + yMov;
 					}
@@ -187,6 +186,12 @@ package Objects {
 			
 					return destX;
                 
+				}
+				
+				public override function handleJoystick(event:GamepadEvent):void {
+					
+					trace("I would handle joystick but no");
+					
 				}
 		}
 

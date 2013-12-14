@@ -8,9 +8,9 @@
     <movie fps="30" />
     <movie width="800" />
     <movie height="600" />
-    <movie version="11" />
+    <movie version="3" />
     <movie minorVersion="8" />
-    <movie platform="Flash Player" />
+    <movie platform="AIR" />
     <movie background="#FFFFFF" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
@@ -42,7 +42,7 @@
     <option linkReport="" />
     <option loadExterns="" />
     <option staticLinkRSL="True" />
-    <option additional="-swf-version=13" />
+    <option additional="-swf-version=20" />
     <option compilerConstants="" />
     <option minorVersion="" />
   </build>
@@ -53,6 +53,7 @@
   <!-- SWC Libraries -->
   <libraryPaths>
     <element path="lib\starling.swc" />
+    <element path="lib\gamepad.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
@@ -85,7 +86,7 @@
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="Default" />
+    <option testMovie="Unknown" />
     <option testMovieCommand="" />
   </options>
   <!-- Plugin storage -->

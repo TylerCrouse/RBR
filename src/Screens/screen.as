@@ -1,5 +1,6 @@
 package Screens {
 	
+	import bitmasq.GamepadEvent;
 	import starling.display.Sprite;
 	import starling.events.KeyboardEvent;
 	import starling.events.Touch;
@@ -25,6 +26,10 @@ package Screens {
 		
 		public function getTicks():int {
 			return -1;
+		}
+		
+		public function handleJoystick(event:GamepadEvent):void {
+			
 		}
 		
 		public function handleKeyDown(event:KeyboardEvent):void{
