@@ -41,6 +41,7 @@ package
 		private var keyDown:Boolean;
 		private var soundMenu:soundPlayer;
 		private var soundPlay:soundPlayer;
+		private var currentLvl:Number;
 		
 			
 		public function Game() {
@@ -143,6 +144,10 @@ package
 						state = STATE_GAMEOVER;
 						tempTicks = numTicks;
 					}
+					else if (currentScreen.win) {
+						trace("winning");
+						play(new Event("play", false, currentLvl + 1));
+					}
 					
 					break;
 					
@@ -237,7 +242,7 @@ package
 		private function play(ev:Event):void {
 			
 			soundMenu.stopSound();
-			
+			currentLvl = int(ev.data);
 			soundPlay = new soundPlayer();
 			soundPlay.playSound("play");
 			

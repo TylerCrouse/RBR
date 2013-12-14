@@ -112,6 +112,10 @@ package Objects {
 			health = 0;
 			
 		}
+		
+		public function checkWin():Boolean {
+			return false;
+		}
 	}
 
 }

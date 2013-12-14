@@ -193,6 +193,11 @@ package Objects {
 					trace("I would handle joystick but no");
 					
 				}
+				
+				public override function checkWin():Boolean {
+					if (temp.x >= 2496 + offset) return true;
+					else return false;
+				}
 		}
 
 }
