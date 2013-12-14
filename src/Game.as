@@ -167,10 +167,6 @@ package
 						currentScreen = new gameoverScreen();
 						addChild(currentScreen);
 					}
-					if (tempTicks + 90 <= numTicks) {
-						state = STATE_MENU;
-						currentScreen = null;
-					}
 					
 					break;
 				
@@ -221,6 +217,7 @@ package
 			removeEventListener("gameover", gameOver);
 			
 			state = STATE_GAMEOVER;
+
 		}
 		private function menuSelect(ev:Event):void {
 			
@@ -247,6 +244,15 @@ package
 			addChild(currentScreen);
 			
 		}
+		private function pauseGame():void {
+			state = STATE_PAUSE;
+		}
+		private function unPauseGame():void {
+			soundPlay.stopSound();
+			
+			removeChild(currentScreen);
+			state = STATE_PLAY;
+		}
 		
 		//Do init things
 		private function startInit():void {
@@ -266,8 +272,8 @@ package
 					break;
 				case STATE_PLAY:
 					if(event.keyCode == 32){
-					
-						state = STATE_PAUSE;
+						pauseGame();
+						//state = STATE_PAUSE;
 					}
 					else {
 						currentScreen.handleKeyDown(event);
@@ -275,7 +281,7 @@ package
 					break;
 				case STATE_PAUSE:
 					if(event.keyCode == 32){
-						
+						unPauseGame();
 						
 					}
 					break;
@@ -285,10 +291,19 @@ package
 					}
 					break;
 				case STATE_GAMEOVER:
-					state = STATE_CREDITS;
+						if (tempTicks + 70 <= numTicks){
+							soundPlay.stopSound();
+							state = STATE_MENU;
+							soundMenu.playSound("mainMenu");
+							currentScreen = null;
+						}
 					break;
 				case STATE_WIN:
-					state = STATE_CREDITS;
+					break;
+				case STATE_CONTROLS:
+					if (event.keyCode == 82) {
+						state = STATE_MENU;
+					}
 					break;
 			}
 		}

@@ -34,7 +34,8 @@ package Screens {
 			level4Text = new MovieClip(Assets.getAtlas().getTextures("N"), 10);
 			backButton = new MovieClip(Assets.getAtlas().getTextures("backText"), 10);
 			
-			backButton.y = 500;
+			backButton.y = 50;
+			backButton.x = 650;
 		
 			
 			level1Text.x = 100;

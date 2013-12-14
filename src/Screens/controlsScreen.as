@@ -26,7 +26,8 @@ package Screens {
 			bg = new Image(Assets.getTexture("controlsBG"));
 			this.addChild(bg);
 			backButton = new MovieClip(Assets.getAtlas().getTextures("backText"), 10);
-			backButton.y = 75;
+			backButton.y = 50;
+			backButton.x = 650;
 			addChild(backButton);
 			
 		}

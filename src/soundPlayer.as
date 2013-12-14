@@ -31,8 +31,16 @@ package  {
 				currentSound = titleSong.play(0, 99);
 			
 			}
-			else{
-				currentSound = playSong.play(0,99);
+			else if (soundName == "play") {
+				
+				currentSound = playSong.play(0, 99);
+				
+			}
+			else if (soundName == "lose") {
+				
+			}
+			else if (soundName == "win"){
+			
 			}
 		}
 		public function stopSound():void {
