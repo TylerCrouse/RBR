@@ -58,6 +58,12 @@ package
 		[Embed(source="../Assets/tiles/tileSprites.xml", mimeType="application/octet-stream")]
 		public static const TileMapXmlGame:Class;
 		
+		[Embed(source = "../Assets/Font Assets/Font Sheets/Font 1/minus.png")]
+		public static const minus:Class;
+		
+		[Embed(source = "../Assets/Font Assets/Font Sheets/Font 1/plus.png")]
+		public static const plus:Class;
+		
 		public static function getTile():TextureAtlas {
 			
 			if (tileTextureAtlas == null)
