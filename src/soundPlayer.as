@@ -5,17 +5,21 @@ package  {
 
 	public class soundPlayer {
 		
-		private var s:Sound;
+		private var playSong:Sound;
 		private var titleSong:Sound;
+		private var winSong:Sound;
 		private var currentSound:SoundChannel;
 		
 		public function soundPlayer() {
 			
-			var req:URLRequest = new URLRequest("../Assets/Sounds/poppyishlikesong.MP3"); 
-			s = new Sound(req);
+			var req:URLRequest = new URLRequest("../Assets/Sounds/game_music.MP3"); 
+			playSong = new Sound(req);
 			
 			var reqMenu:URLRequest = new URLRequest("../Assets/Sounds/title_music.MP3"); 
 			titleSong = new Sound(reqMenu);
+			
+			var reqWin:URLRequest = new URLRequest("../Assets/Sounds/win_level_sound.MP3"); 
+			winSong = new Sound(reqWin);
 			
 		}
 		
@@ -28,7 +32,7 @@ package  {
 			
 			}
 			else{
-				currentSound = s.play(0,99);
+				currentSound = playSong.play(0,99);
 			}
 		}
 		public function stopSound():void {

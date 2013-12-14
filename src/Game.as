@@ -28,7 +28,7 @@ package
 		private static const STATE_GAMEOVER:Number = 6;
 		private static const STATE_WIN:Number = 7;
 		private static const STATE_LEVELSELECT:Number = 8;
-		private static const STATE_SETTINGS:Number = 9;
+		private static const STATE_CONTROLS:Number = 9;
 		
 		//private var temp:tempObj;
 		private var timer:Timer;
@@ -91,7 +91,7 @@ package
 					//If the current screen has not been set or is not the menu
 					if (currentScreen == null || currentScreen.getType() != "mainMenu") {
 						this.addEventListener("levelSelect", levelSelect);
-						//this.addEventListener("settingsSelect", settingsSelect);
+						this.addEventListener("controlsSelect", controlsSelect);
 						this.addEventListener("creditSelect", creditSelect);
 						currentScreen = new mainMenuScreen();
 						addChild(currentScreen);
@@ -106,6 +106,18 @@ package
 					if (currentScreen == null || currentScreen.getType() != "credits") {
 						this.addEventListener("menuSelect", menuSelect);
 						currentScreen = new creditScreen();
+						addChild(currentScreen);
+						
+						
+					}
+					
+					break;
+					
+				case STATE_CONTROLS:
+					
+					if (currentScreen == null || currentScreen.getType() != "controls") {
+						this.addEventListener("menuSelect", menuSelect);
+						currentScreen = new controlsScreen();
 						addChild(currentScreen);
 						
 						
@@ -164,15 +176,14 @@ package
 			state = STATE_LEVELSELECT;
 			
 		}
-		private function settingsSelect(ev:Event):void {
+		private function controlsSelect(ev:Event):void {
 			
 			currentScreen = null;
 			removeChildren();
-			removeEventListener("settingsSelect", settingsSelect);
+			removeEventListener("controlsSelect", controlsSelect);
 			
-			//this.addEventListener("play", play);
 			
-			state = STATE_SETTINGS;
+			state = STATE_CONTROLS;
 			
 		}
 		
@@ -226,9 +237,6 @@ package
 				case STATE_INIT:
 					break;
 				case STATE_MENU:
-					keyDown = true;
-					removeChildren();
-					state = STATE_PLAY;
 					break;
 				case STATE_PLAY:
 					if(event.keyCode == 32){

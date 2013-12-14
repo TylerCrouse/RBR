@@ -29,6 +29,9 @@ package
 		[Embed(source="../Assets/Backgrounds/Simple Backgrounds/creditsBG.png")]
 		public static const creditsBG:Class;
 		
+		[Embed(source="../Assets/Backgrounds/Simple Backgrounds/controlsBG.png")]
+		public static const controlsBG:Class;
+		
 		[Embed(source="../Assets/Sprites/bugSprite.png")]	
 		public static const bugTexture:Class;
 		

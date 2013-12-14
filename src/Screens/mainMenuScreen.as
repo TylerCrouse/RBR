@@ -14,7 +14,7 @@ package Screens {
 		private var bg:Image;
 		private var playText:MovieClip;
 		private var creditText:MovieClip;
-		private var settingsText:MovieClip;
+		private var controlsText:MovieClip;
 		
 		public function mainMenuScreen() {
 			
@@ -28,22 +28,22 @@ package Screens {
 			
 			playText = new MovieClip(Assets.getAtlas().getTextures("playText"), 10);
 			creditText = new MovieClip(Assets.getAtlas().getTextures("creditText"), 10);
-			settingsText = new MovieClip(Assets.getAtlas().getTextures("settingsText"), 10);
+			controlsText = new MovieClip(Assets.getAtlas().getTextures("controlsText"), 10);
 			
 			addChild(bg);
 			
 			addChild(playText);
 			addChild(creditText);
-			addChild(settingsText);
+			addChild(controlsText);
 			
-			playText.x = 400 - playText.width/2;
-			playText.y = 250;
+			playText.x = 200 - playText.width/2;
+			playText.y = 225;
 			
-			settingsText.x = 400 - settingsText.width/2;
-			settingsText.y = 300;
+			controlsText.x = 400 - controlsText.width/2;
+			controlsText.y = 275;
 			
-			creditText.x = 400 - creditText.width/2;
-			creditText.y = 350;
+			creditText.x = 600 - creditText.width/2;
+			creditText.y = 450;
 			
 			
 			
@@ -64,9 +64,9 @@ package Screens {
 					dispatchEvent(new Event("creditSelect", true));
 			
 				}
-				else if (settingsText.getBounds(this.parent).containsPoint(point)){
-					trace("dispatch settings event");
-					dispatchEvent(new Event("settingsSelect", true));
+				else if (controlsText.getBounds(this.parent).containsPoint(point)){
+					trace("dispatch controls event");
+					dispatchEvent(new Event("controlsSelect", true));
 				}
 			}
 			
