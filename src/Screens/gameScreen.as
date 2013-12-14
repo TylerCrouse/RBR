@@ -3,7 +3,7 @@ package Screens {
 	import bitmasq.GamepadEvent;
 	import Collections.enemyCollector;
 	import flash.geom.Point;
-	import flash.text.TextField;
+	//import flash.text.TextField;
 	import levelData.levelLoader;
 	import levelData.levels.*;
 	import Objects.enemy;
@@ -12,6 +12,7 @@ package Screens {
 	import starling.events.KeyboardEvent;
 	import starling.events.Touch;
 	import tileMap.tileMap;
+	import starling.text.TextField;
 
 	public class gameScreen extends screen{
 		
@@ -22,6 +23,7 @@ package Screens {
 		private var enemies:enemyCollector;
 		private var leftDown:Boolean = false;
 		private var rightDown:Boolean = false;
+		private var myText:TextField;
 		
 		
 		public function gameScreen(x:int) {
@@ -33,6 +35,7 @@ package Screens {
 			
 			numTicks++;
 			player.tick();
+			win = player.checkWin();
 			collision = enemies.checkCollision(player.bounds);
 			enemies.tick();
 			move();
@@ -65,7 +68,6 @@ package Screens {
 			
 			var loadLevel:levelLoader = new levelLoader();
 			var currLevel:level = loadLevel.loadLevel(2);
-			
 			currentMap = currLevel.loadLevelMap();
 			
 			
