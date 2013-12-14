@@ -26,10 +26,17 @@ package Objects
 		private function move() {
 			enemyobj.x = enemyobj.x + enemyVector.x*enemySpeed;
 			enemyobj.y = enemyobj.y + enemyVector.y*enemySpeed;
-			if (enemyobj.x < 64) enemyVector.x = enemyVector.x * -1;
+			if (enemyobj.x < 124) enemyVector.x = enemyVector.x * -1;
 			if (enemyobj.x > 2496) enemyVector.x = enemyVector.x * -1;
 			if (enemyobj.y < 96) enemyVector.y = enemyVector.y * -1;
 			if (enemyobj.y > 440) enemyVector.y = enemyVector.y * -1;
+		}
+		
+		public function increaseSize() {
+			
+			enemyobj.scaleX = 1.5;
+			enemyobj.scaleY = 1.5;
+			
 		}
 		
 		public function changeVector(x:Number, y:Number):void {
@@ -38,7 +45,7 @@ package Objects
 		}
 		
 		public function changeSpeed(speed:Number):void {
-			enemySpeed = speed;
+			enemySpeed = enemySpeed + speed;
 		}
 		
 		public function checkCollision(pos:Rectangle):Boolean {
