@@ -383,9 +383,9 @@ package
 				onKeyUp(new KeyboardEvent("null", 0, 39));
 			}
 			
-			if (event.control == Gamepad.RSTICK_X || event.control == Gamepad.RSTICK_X) {
+			if (event.control == Gamepad.RSTICK_X || event.control == Gamepad.RSTICK_Y) {
 				
-				trace("Right stick is doing shit");
+				//trace("Right stick is doing shit");
 				currentScreen.handleJoystick(event);
 				
 			}

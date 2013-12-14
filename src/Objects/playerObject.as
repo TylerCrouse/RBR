@@ -1,5 +1,6 @@
 package Objects {
 		import bitmasq.GamepadEvent;
+		import bitmasq.Gamepad;
         import flash.geom.Point;
         import starling.display.MovieClip;
         import starling.events.Touch;
@@ -189,9 +190,13 @@ package Objects {
 				}
 				
 				public override function handleJoystick(event:GamepadEvent):void {
+					var newPoint = new Point(Gamepad.get().query(event.deviceIndex, 5), Gamepad.get().query(event.deviceIndex, 6));
+					newPoint.x = newPoint.x * 50;
+					newPoint.y = newPoint.y * 50;
+					turnToFace(temp.x + newPoint.x,temp.y + newPoint.y);
+					moveTowards(temp.x + newPoint.x,temp.y + newPoint.y);
 					
-					trace("I would handle joystick but no");
-					
+					//trace("I would handle joystick but no");
 				}
 				
 				public override function checkWin():Boolean {
