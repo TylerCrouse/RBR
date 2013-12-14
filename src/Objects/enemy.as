@@ -26,7 +26,7 @@ package Objects
 		private function move() {
 			enemyobj.x = enemyobj.x + enemyVector.x*enemySpeed;
 			enemyobj.y = enemyobj.y + enemyVector.y*enemySpeed;
-			if (enemyobj.x < 32) enemyVector.x = enemyVector.x * -1;
+			if (enemyobj.x < 64) enemyVector.x = enemyVector.x * -1;
 			if (enemyobj.x > 2496) enemyVector.x = enemyVector.x * -1;
 			if (enemyobj.y < 96) enemyVector.y = enemyVector.y * -1;
 			if (enemyobj.y > 440) enemyVector.y = enemyVector.y * -1;

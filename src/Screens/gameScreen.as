@@ -1,6 +1,7 @@
 package Screens {
 	import Collections.enemyCollector;
 	import flash.geom.Point;
+	import flash.text.TextField;
 	import levelData.levelLoader;
 	import levelData.levels.*;
 	import Objects.enemy;
@@ -20,11 +21,10 @@ package Screens {
 		private var leftDown:Boolean = false;
 		private var rightDown:Boolean = false;
 		
+		
 		public function gameScreen(x:int) {
-			
 			selectedLevel = x;
 			startScreen();
-			
 		}
 		
 		public override function tick(): void {
@@ -62,10 +62,13 @@ package Screens {
 			player = new playerObject();
 			
 			var loadLevel:levelLoader = new levelLoader();
-			var currLevel:level = loadLevel.loadLevel(selectedLevel);
+			var currLevel:level = loadLevel.loadLevel(2);
 			
 			currentMap = currLevel.loadLevelMap();
-			enemies = currLevel.loadEnemyData();
+			
+			
+			enemies = currLevel.dynamicLoad(selectedLevel);
+			
 			
 			addChild(currentMap);
 			var i:int = 0;
