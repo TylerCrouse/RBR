@@ -193,7 +193,6 @@ package
 		}
 		
 		private function levelSelect(ev:Event):void {
-			
 			currentScreen = null;
 			removeChildren();
 			removeEventListener("levelSelect", levelSelect);
