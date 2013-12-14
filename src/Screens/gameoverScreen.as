@@ -11,6 +11,7 @@ package Screens {
 	public class gameoverScreen extends screen{
 		
 		private var bg:Image;
+		private var backButton:MovieClip;
 		
 		public function gameoverScreen() {
 			
@@ -21,7 +22,12 @@ package Screens {
 		protected override function startScreen():void {
 			
 			bg = new Image(Assets.getTexture("gameoverBG"));
+			backButton = new MovieClip(Assets.getAtlas().getTextures("backText"), 10);
+			backButton.y = 100;
+			backButton.x = 650;
+			
 			this.addChild(bg);
+			this.addChild(backButton);
 		}
 		
 		public override function getType():String {
@@ -33,6 +39,17 @@ package Screens {
 		public override function tick():void 
 		{
 		
+		}
+		public override function handleTouch(touch:Touch):void {
+			if (touch) {
+				
+				var point:Point = touch.getLocation(this);
+				
+				if (backButton.getBounds(this.parent).containsPoint(point)) {
+					trace("Dispatching 'back to menu' touched event.");
+					dispatchEvent(new Event("menuSelect", true));
+				}
+			}
 		}
 		
 	}

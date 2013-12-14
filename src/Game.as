@@ -303,11 +303,8 @@ package
 					}
 					break;
 				case STATE_GAMEOVER:
-						if (tempTicks + 50 <= numTicks){
-							soundPlay.stopSound();
-							state = STATE_MENU;
-							soundMenu.playSound("mainMenu");
-							currentScreen = null;
+						if (event.keyCode != 37 && event.keyCode != 39){
+							play(new Event("play", false, currentLvl));
 						}
 					break;
 				case STATE_WIN:
