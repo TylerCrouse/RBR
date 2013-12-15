@@ -1,4 +1,6 @@
 package Screens {
+	import bitmasq.GamepadEvent;
+	import bitmasq.Gamepad;
 	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.events.Touch;
@@ -50,6 +52,14 @@ package Screens {
 					trace("Dispatching 'back to menu' touched event.");
 					dispatchEvent(new Event("menuSelect", true));
 				}
+			}
+		}
+		
+		public override function handleJoystick(event:GamepadEvent):void {
+                    
+			if (event.control == Gamepad.A_RIGHT && event.value == 1) {
+				trace("Dispatching 'back to menu' touched event.");
+				dispatchEvent(new Event("menuSelect", true));
 			}
 		}
 		

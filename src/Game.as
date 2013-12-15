@@ -403,8 +403,10 @@ package
                         }
                         
                         if (event.control == Gamepad.A_RIGHT && event.value == 1) {
-                                if(currentScreen != null && currentScreen.getType() == "levelSelect"){
+                                if (currentScreen != null) {
+									if(currentScreen.getType() == "gameover" || currentScreen.getType() == "levelSelect"){
                                         currentScreen.handleJoystick(event);
+								}
                                 }
                         }
                         
@@ -414,12 +416,6 @@ package
                                 if(currentScreen != null){
                                         currentScreen.handleJoystick(event);
                                 }
-                                
-                        }else {
-                                
-                                //Send an event so that you can replay using the xbox controller
-                                onKeyDown(new KeyboardEvent("null", 0, 36));
-                                onKeyUp(new KeyboardEvent("null", 0, 36));
                                 
                         }
 
