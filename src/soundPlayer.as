@@ -26,12 +26,14 @@ package  {
 		public function playSound(soundName:String):void {
 			
 			trace("Playing sound");
-			if(soundName == "mainMenu"){
+			if (soundName == "mainMenu") {
+				currentSound = null;
 	
 				currentSound = titleSong.play(0, 99);
 			
 			}
 			else if (soundName == "play") {
+				currentSound = null;
 				
 				currentSound = playSong.play(0, 99);
 				
@@ -40,7 +42,7 @@ package  {
 				
 			}
 			else if (soundName == "win"){
-			
+				winSong.play();
 			}
 		}
 		public function stopSound():void {

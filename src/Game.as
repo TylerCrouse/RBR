@@ -42,6 +42,7 @@ package
 		private var keyDown:Boolean;
 		private var soundMenu:soundPlayer;
 		private var soundPlay:soundPlayer;
+		private var soundWin:soundPlayer;
 		private var currentLvl:Number;
 		
 			
@@ -147,6 +148,8 @@ package
 					}
 					else if (currentScreen.win) {
 						trace("winning");
+						soundWin = new soundPlayer();
+						soundWin.playSound("win");
 						play(new Event("play", false, currentLvl + 1));
 					}
 					
@@ -223,6 +226,7 @@ package
 			
 		}
 		private function gameOver(ev:Event):void {
+			soundMenu.stopSound();
 			currentScreen = null;
 			removeChildren();
 			removeEventListener("gameover", gameOver);
@@ -242,7 +246,7 @@ package
 		}
 		private function play(ev:Event):void {
 			if (soundPlay) { soundPlay.stopSound(); }
-			soundMenu.stopSound();
+			
 			currentLvl = int(ev.data);
 			soundPlay = new soundPlayer();
 			soundPlay.playSound("play");
@@ -252,6 +256,7 @@ package
 			removeEventListener("play", play);
 			
 			state = STATE_PLAY;
+			soundMenu.stopSound();
 			currentScreen = new gameScreen(int(ev.data));
 			addChild(currentScreen);
 			
