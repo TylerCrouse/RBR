@@ -1,6 +1,6 @@
 package tileMap.tiles {
 	
-		import starling.animation.Juggler;
+	import starling.animation.Juggler;
 	import starling.animation.Tween;
 	import starling.core.Starling;
 	import starling.display.MovieClip;
@@ -10,6 +10,7 @@ package tileMap.tiles {
 		
 		private var cliffSprite:MovieClip;
 		
+		//This is the cliff for the bottom half of the canyon
 		public function cliff1() {
 			
 			init();
@@ -19,11 +20,14 @@ package tileMap.tiles {
 		protected override function init():void {
 			
 			var rand:Number = Math.random();
+			
+			//Randomly picks one of the two types
 			if (rand <= .5) {
 				cliffSprite = new MovieClip(Assets.getTile().getTextures("cliff1"), 45);
 			}else {
 				cliffSprite = new MovieClip(Assets.getTile().getTextures("cliff2"), 45);
 			}
+			
 			cliffSprite.x = Math.ceil(-cliffSprite.width/2);
 			cliffSprite.y = Math.ceil( -cliffSprite.height / 2);
 			
@@ -31,26 +35,10 @@ package tileMap.tiles {
 			
 		}
 		
-		public override function tick():void {
-			
-		}
-		
-		public override function moveTo(x:int, y:int):void {
-			
-			cliffSprite.x = x;
-			cliffSprite.y = y;
-			
-		}
-		
+		//This is the first cliff texture
 		public override function getType():String {
 			
 			return "cliff1";
-			
-		}
-		
-		public override function hasCollision():Boolean {
-			
-			return true;
 			
 		}
 		

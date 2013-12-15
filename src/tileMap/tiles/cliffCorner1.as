@@ -6,6 +6,7 @@ package tileMap.tiles {
 	import starling.display.MovieClip;
 	import tileMap.tiles.tile;
 
+	//Bottom left corner
 	public class cliffCorner1 extends tile{
 		
 		private var cliffCornerSprite:MovieClip;
@@ -19,6 +20,7 @@ package tileMap.tiles {
 		protected override function init():void {
 			
 			cliffCornerSprite = new MovieClip(Assets.getTile().getTextures("cliffCorner1"), 45);
+			
 			cliffCornerSprite.x = Math.ceil(-cliffCornerSprite.width/2);
 			cliffCornerSprite.y = Math.ceil( -cliffCornerSprite.height / 2);
 			
@@ -26,26 +28,10 @@ package tileMap.tiles {
 			
 		}
 		
-		public override function tick():void {
-			
-		}
-		
-		public override function moveTo(x:int, y:int):void {
-			
-			cliffCornerSprite.x = x;
-			cliffCornerSprite.y = y;
-			
-		}
-		
+		//First corner type
 		public override function getType():String {
 			
 			return "cliffCorner1";
-			
-		}
-		
-		public override function hasCollision():Boolean {
-			
-			return true;
 			
 		}
 		

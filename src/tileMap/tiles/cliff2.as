@@ -10,6 +10,7 @@ package tileMap.tiles {
 		
 		private var cliffSprite:MovieClip;
 		
+		//Cliff 2 are the sprites for the top half of the canyon
 		public function cliff2() {
 			
 			init();
@@ -20,8 +21,8 @@ package tileMap.tiles {
 			
 			var rand:Number = Math.random();
 
+			//Randomly picks from the two sprite types
 			if (rand <= .5) {
-
 				cliffSprite = new MovieClip(Assets.getTile().getTextures("cliff3"), 1);
 			}else {
 				cliffSprite = new MovieClip(Assets.getTile().getTextures("cliff4"), 1);
@@ -29,32 +30,18 @@ package tileMap.tiles {
 
 			cliffSprite.x = Math.ceil(-cliffSprite.width/2);
 			cliffSprite.y = Math.ceil( -cliffSprite.height / 2);
+			
 			this.addChild(cliffSprite);
 			
 		}
 		
-		public override function tick():void {
-			
-		}
-		
-		public override function moveTo(x:int, y:int):void {
-			
-			cliffSprite.x = x;
-			cliffSprite.y = y;
-			
-		}
-		
+		//This is cliff type 2
 		public override function getType():String {
 			
 			return "cliff2";
 			
 		}
-		
-		public override function hasCollision():Boolean {
-			
-			return true;
-			
-		}
+
 		
 	}
 

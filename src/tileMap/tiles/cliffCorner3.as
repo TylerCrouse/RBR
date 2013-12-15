@@ -10,6 +10,7 @@ package tileMap.tiles {
 		
 		private var cliffCornerSprite:MovieClip;
 		
+		//Top right corner
 		public function cliffCorner3() {
 			
 			init();
@@ -19,32 +20,18 @@ package tileMap.tiles {
 		protected override function init():void {
 			
 			cliffCornerSprite = new MovieClip(Assets.getTile().getTextures("cliffCorner3"), 45);
+			
 			cliffCornerSprite.x = Math.ceil(-cliffCornerSprite.width/2);
 			cliffCornerSprite.y = Math.ceil( -cliffCornerSprite.height / 2);
+			
 			this.addChild(cliffCornerSprite);
 			
 		}
 		
-		public override function tick():void {
-			
-		}
-		
-		public override function moveTo(x:int, y:int):void {
-			
-			cliffCornerSprite.x = x;
-			cliffCornerSprite.y = y;
-			
-		}
-		
+		//Third type of corner
 		public override function getType():String {
 			
 			return "cliffCorner3";
-			
-		}
-		
-		public override function hasCollision():Boolean {
-			
-			return true;
 			
 		}
 		

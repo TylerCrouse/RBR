@@ -1,6 +1,6 @@
 package tileMap.tiles {
 	
-		import starling.animation.Juggler;
+	import starling.animation.Juggler;
 	import starling.animation.Tween;
 	import starling.core.Starling;
 	import starling.display.MovieClip;
@@ -10,6 +10,7 @@ package tileMap.tiles {
 		
 		private var cliffSprite:MovieClip;
 		
+		//This is the sprite for the left cliffs on the canyon
 		public function cliff3() {
 			
 			init();
@@ -19,32 +20,18 @@ package tileMap.tiles {
 		protected override function init():void {
 			
 			cliffSprite = new MovieClip(Assets.getTile().getTextures("cliff5"), 45);
+			
 			cliffSprite.x = Math.ceil(-cliffSprite.width/2);
 			cliffSprite.y = Math.ceil( -cliffSprite.height / 2);
+			
 			this.addChild(cliffSprite);
 			
 		}
 		
-		public override function tick():void {
-			
-		}
-		
-		public override function moveTo(x:int, y:int):void {
-			
-			cliffSprite.x = x;
-			cliffSprite.y = y;
-			
-		}
-		
+		//Cliff type 3
 		public override function getType():String {
 			
 			return "cliff3";
-			
-		}
-		
-		public override function hasCollision():Boolean {
-			
-			return true;
 			
 		}
 		

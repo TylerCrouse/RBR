@@ -6,6 +6,7 @@ package tileMap.tiles {
 	import starling.display.MovieClip;
 	import tileMap.tiles.tile;
 
+	//Grass sprite
 	public class grass1 extends tile{
 		
 		private var grassSprite:MovieClip;
@@ -19,6 +20,7 @@ package tileMap.tiles {
 		protected override function init():void {
 			
 			grassSprite = new MovieClip(Assets.getTile().getTextures("grass1"), 45);
+			
 			grassSprite.x = Math.ceil(-grassSprite.width/2);
 			grassSprite.y = Math.ceil( -grassSprite.height / 2);
 			
@@ -26,26 +28,9 @@ package tileMap.tiles {
 			
 		}
 		
-		public override function tick():void {
-			
-		}
-		
-		public override function moveTo(x:int, y:int):void {
-			
-			grassSprite.x = x;
-			grassSprite.y = y;
-			
-		}
-		
 		public override function getType():String {
 			
-			return "grass1";
-			
-		}
-		
-		public override function hasCollision():Boolean {
-			
-			return true;
+			return "grass";
 			
 		}
 		

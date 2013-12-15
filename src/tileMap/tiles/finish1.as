@@ -1,14 +1,15 @@
 package tileMap.tiles {
 	
-		import starling.animation.Juggler;
+	import starling.animation.Juggler;
 	import starling.animation.Tween;
 	import starling.core.Starling;
 	import starling.display.MovieClip;
 	import tileMap.tiles.tile;
 
+	//Finish line sprite
 	public class finish1 extends tile{
 		
-		private var cliffSprite:MovieClip;
+		private var finishSprite:MovieClip;
 		
 		public function finish1() {
 			
@@ -18,35 +19,18 @@ package tileMap.tiles {
 		
 		protected override function init():void {
 			
-				cliffSprite = new MovieClip(Assets.getTile().getTextures("finish1"), 45);
+			finishSprite = new MovieClip(Assets.getTile().getTextures("finish1"), 45);
 
-			cliffSprite.x = Math.ceil(-cliffSprite.width/2);
-			cliffSprite.y = Math.ceil( -cliffSprite.height / 2);
+			finishSprite.x = Math.ceil(-finishSprite.width/2);
+			finishSprite.y = Math.ceil( -finishSprite.height / 2);
 			
-			this.addChild(cliffSprite);
-			
-		}
-		
-		public override function tick():void {
-			
-		}
-		
-		public override function moveTo(x:int, y:int):void {
-			
-			cliffSprite.x = x;
-			cliffSprite.y = y;
+			this.addChild(finishSprite);
 			
 		}
 		
 		public override function getType():String {
 			
-			return "cliff1";
-			
-		}
-		
-		public override function hasCollision():Boolean {
-			
-			return true;
+			return "finish1";
 			
 		}
 		

@@ -18,6 +18,8 @@ package Objects
 			enemyobj.x = posx;
 			enemyobj.y = posy;
 			enemySpeed = speed;
+			enemyobj.scaleX = .6;
+			enemyobj.scaleY = .6;
 			enemyVector = new Point(vecx, vecy);
 			this.addChild(enemyobj);
 			
@@ -34,8 +36,8 @@ package Objects
 		
 		public function increaseSize() {
 			
-			enemyobj.scaleX = 1.5;
-			enemyobj.scaleY = 1.5;
+			enemyobj.scaleX = scaleX * 1.1;
+			enemyobj.scaleY = scaleY * 1.1;
 			
 		}
 		
@@ -49,12 +51,15 @@ package Objects
 		}
 		
 		public function checkCollision(pos:Rectangle):Boolean {
+			
+			pos.x = pos.x - 1;
+			pos.y = pos.y - 1;
+			pos.width = pos.width - 1;
+			pos.height = pos.height - 1;
+			
 			var bounds:Rectangle;
 			var newPoint:Point = localToGlobal(new Point(enemyobj.x, enemyobj.y));
-			bounds = new Rectangle(newPoint.x, newPoint.y, enemyobj.bounds.width, enemyobj.bounds.height);
-			pos.height = 20;
-			pos.width = 40;
-			
+			bounds = new Rectangle(newPoint.x - 1, newPoint.y - 1, enemyobj.bounds.width - (enemyobj.scaleX * .05), enemyobj.bounds.height - (enemyobj.scaleY * .05));	
 			
 			if (bounds.intersects(pos)) {
 				var date:Date = new Date();
