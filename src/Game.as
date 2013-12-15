@@ -288,10 +288,6 @@ package
 				case STATE_INIT:
 					break;
 				case STATE_MENU:
-					if (event.keyCode == 32) {
-						trace("Dispatching levelSelect touched event.");
-						dispatchEvent(new Event("levelSelect", true));
-					}
 					break;
 				case STATE_PLAY:
 					if(event.keyCode == 32){
@@ -380,35 +376,15 @@ package
 			
 			if (event.control == Gamepad.LT && event.value == 1) {
 				onKeyDown(new KeyboardEvent("null", 0, 37));
-				if(currentScreen != null && currentScreen.getType() == "levelSelect"){
-					currentScreen.handleJoystick(event);
-				}
 			}else if(event.control == Gamepad.LT && event.value == 0){
 				onKeyUp(new KeyboardEvent("null", 0, 37));
 			}
 			
 			if (event.control == Gamepad.RT && event.value == 1) {
 				onKeyDown(new KeyboardEvent("null", 0, 39));
-				if(currentScreen != null && currentScreen.getType() == "levelSelect"){
-					currentScreen.handleJoystick(event);
-				}
 			}else if(event.control == Gamepad.RT && event.value == 0){
 				onKeyUp(new KeyboardEvent("null", 0, 39));
 			}
-			
-			if (event.control == Gamepad.A_DOWN && event.value == 1) {
-				onKeyDown(new KeyboardEvent("null", 0, 32));
-				if(currentScreen != null && currentScreen.getType() == "levelSelect"){
-					currentScreen.handleJoystick(event);
-				}
-			}
-			
-			if (event.control == Gamepad.A_RIGHT && event.value == 1) {
-				if(currentScreen != null && currentScreen.getType() == "levelSelect"){
-					currentScreen.handleJoystick(event);
-				}
-			}
-			
 			
 			if (event.control == Gamepad.RSTICK_X || event.control == Gamepad.RSTICK_Y) {
 
@@ -416,7 +392,7 @@ package
 					currentScreen.handleJoystick(event);
 				}
 				
-			}else {
+			}else if (event.control == Gamepad.BUTTON_A || event.control == Gamepad.BUTTON_O || event.control == Gamepad.BUTTON_U || event.control == Gamepad.BUTTON_Y){
 				
 				//Send an event so that you can replay using the xbox controller
 				onKeyDown(new KeyboardEvent("null", 0, 36));

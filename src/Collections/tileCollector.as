@@ -6,7 +6,7 @@ package  Collections {
 	//lets it run gameObject methods on them
 	public class tileCollector {
 		
-		var selectedLevel = new Array(
+		private var selectedLevel:Array = new Array(
 		[8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
 		[5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 11, 8],
 		[3, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 12, 13, 9, 8],
@@ -18,7 +18,7 @@ package  Collections {
 		[4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 8],
 		[8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]);
 		
-		var currLevel:Number;
+		private var currLevel:Number;
 		private var objArray:Array;
 		
 		public function tileCollector() {
@@ -28,7 +28,7 @@ package  Collections {
 			
 		}
 		
-		public function loadLevel() {
+		public function loadLevel():void {
 			var i:int = 0;
 			var j:int = 0;
 			for (i = 0; i < selectedLevel.length; i++) {
@@ -99,7 +99,7 @@ package  Collections {
 			
 		}
 		
-		public function setItemAt(index:Number, obj:tile) {
+		public function setItemAt(index:Number, obj:tile):void {
 			
 			objArray[index] = obj;
 			

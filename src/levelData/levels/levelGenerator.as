@@ -33,8 +33,8 @@ package levelData.levels {
 			
 			var enemies:enemyCollector = new enemyCollector();
 			
-			var enemyLevel = 0;
-			var enemyCount = 14 + (numEnemies % 10);
+			var enemyLevel:Number = 0;
+			var enemyCount:Number = 14 + (numEnemies % 10);
 			
 			while (numEnemies > 0) {
 				
@@ -53,10 +53,13 @@ package levelData.levels {
 			
 			var spread:Number = 2296 / enemyCount;
 			
-			var minSpeed = 6 + (10 * seed);
+			var minSpeed:Number = 6 + (10 * seed);
+			
 			trace("seed is " + seed + ". Min speed is " + minSpeed);
+			
 			var numUpgraded:int = 0;
 			var i:int = 0;
+			
 			for (i = 0; i < enemyCount; i++) {
 				
 				

@@ -7,7 +7,7 @@ package tileMap {
 	public class tileMap extends Sprite{
 		
 		//Tile collection utility
-		var levelMap:tileCollector;
+		private var levelMap:tileCollector;
 		
 		public function tileMap():void {
 			

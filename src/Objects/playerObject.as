@@ -47,7 +47,7 @@ package Objects {
                         
                 }
 				
-				public override function setX(x:Number) {
+				public override function setX(x:Number):void {
 					
 					temp.x += x;
 					offset += x;
@@ -188,11 +188,13 @@ package Objects {
 				}
 				
 				public override function handleJoystick(event:GamepadEvent):void {
-					var newPoint = new Point(Gamepad.get().query(event.deviceIndex, 5), Gamepad.get().query(event.deviceIndex, 6));
+					
+					var newPoint:Point = new Point(Gamepad.get().query(event.deviceIndex, 5), Gamepad.get().query(event.deviceIndex, 6));
 					newPoint.x = newPoint.x * 50;
 					newPoint.y = newPoint.y * 50;
 					turnToFace(temp.x + newPoint.x,temp.y + newPoint.y);
-					moveTowards(temp.x + newPoint.x,temp.y + newPoint.y);
+					moveTowards(temp.x + newPoint.x, temp.y + newPoint.y);
+					
 				}
 				
 				public override function checkWin():Boolean {

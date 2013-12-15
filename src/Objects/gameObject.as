@@ -29,7 +29,7 @@ package Objects {
 			
 		}
 		
-		public function setX(x:Number) {
+		public function setX(x:Number):void {
 			
 		}
 		

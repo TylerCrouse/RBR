@@ -30,7 +30,7 @@ package {
 
 		}
 		
-		public function init(ev:Event) {
+		public function init(ev:Event):void {
 			
 			starling = new Starling(Game, stage, null, null, Context3DRenderMode.SOFTWARE); //Uncomment for software mode
 			starling.start();
