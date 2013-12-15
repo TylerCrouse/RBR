@@ -73,6 +73,7 @@ package
 			timer.addEventListener(TimerEvent.TIMER, tick);
 			timer.start();
 			
+			soundPlay = new soundPlayer();
 		}
 		
 		
@@ -223,7 +224,9 @@ package
 			state = STATE_CREDITS;
 			
 		}
+		
 		private function gameOver(ev:Event):void {
+			
 			currentScreen = null;
 			removeChildren();
 			removeEventListener("gameover", gameOver);
@@ -231,20 +234,22 @@ package
 			state = STATE_GAMEOVER;
 
 		}
+		
 		private function menuSelect(ev:Event):void {
 			
 			currentScreen = null;
 			removeChildren();
+			soundPlay.playSound("mainMenu");
 			removeEventListener("menuSelect", menuSelect);
 			
 			state = STATE_MENU;
 			
 		}
+		
 		private function play(ev:Event):void {
 			
-			soundMenu.stopSound();
 			currentLvl = int(ev.data);
-			soundPlay = new soundPlayer();
+			
 			soundPlay.playSound("play");
 			
 			currentScreen = null;
@@ -256,9 +261,11 @@ package
 			addChild(currentScreen);
 			
 		}
+		
 		private function pauseGame():void {
 			state = STATE_PAUSE;
 		}
+		
 		private function unPauseGame():void {
 			trace("unpause");
 			removeChild(pause);
@@ -303,12 +310,9 @@ package
 					}
 					break;
 				case STATE_GAMEOVER:
-						if (tempTicks + 50 <= numTicks){
-							soundPlay.stopSound();
-							state = STATE_MENU;
-							soundMenu.playSound("mainMenu");
-							currentScreen = null;
-						}
+						if (event.keyCode != 37 && event.keyCode != 39){
+							play(new Event("play", false, currentLvl));
+                        }
 					break;
 				case STATE_WIN:
 					break;
@@ -350,8 +354,7 @@ package
 		//Clean up after init
 		private function doneInit():void {
 			trace("Done initializing.");
-			soundMenu = new soundPlayer();
-			soundMenu.playSound("mainMenu");
+			soundPlay.playSound("mainMenu");
 			state = STATE_MENU;
 			
 		}

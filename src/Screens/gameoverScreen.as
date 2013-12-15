@@ -47,8 +47,6 @@ package Screens {
 				var point:Point = touch.getLocation(this);
 				
 				if (backButton.getBounds(this.parent).containsPoint(point)) {
-					soundMenu = new soundPlayer();
-					soundMenu.playSound("mainMenu");
 					trace("Dispatching 'back to menu' touched event.");
 					dispatchEvent(new Event("menuSelect", true));
 				}
