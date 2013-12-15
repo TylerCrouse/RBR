@@ -147,9 +147,7 @@ package Objects {
 					
 					if (!(temp.y >= (600-128) - (temp.height/2) - yMov || temp.y <= 96 + (temp.height/2) - yMov)) {
 						temp.y = temp.y + yMov;
-					}
-					
-					
+					}	
                 }
                 
                 private function move():void {
@@ -195,8 +193,6 @@ package Objects {
 					newPoint.y = newPoint.y * 50;
 					turnToFace(temp.x + newPoint.x,temp.y + newPoint.y);
 					moveTowards(temp.x + newPoint.x,temp.y + newPoint.y);
-					
-					//trace("I would handle joystick but no");
 				}
 				
 				public override function checkWin():Boolean {
