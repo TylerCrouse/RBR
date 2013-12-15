@@ -42,7 +42,6 @@ package
 		private var keyDown:Boolean;
 		private var soundMenu:soundPlayer;
 		private var soundPlay:soundPlayer;
-		private var soundWin:soundPlayer;
 		private var currentLvl:Number;
 		
 			
@@ -148,8 +147,6 @@ package
 					}
 					else if (currentScreen.win) {
 						trace("winning");
-						soundWin = new soundPlayer();
-						soundWin.playSound("win");
 						play(new Event("play", false, currentLvl + 1));
 					}
 					
@@ -196,6 +193,7 @@ package
 		}
 		
 		private function levelSelect(ev:Event):void {
+			
 			currentScreen = null;
 			removeChildren();
 			removeEventListener("levelSelect", levelSelect);
@@ -226,7 +224,6 @@ package
 			
 		}
 		private function gameOver(ev:Event):void {
-			soundMenu.stopSound();
 			currentScreen = null;
 			removeChildren();
 			removeEventListener("gameover", gameOver);
@@ -235,8 +232,7 @@ package
 
 		}
 		private function menuSelect(ev:Event):void {
-			if (soundPlay) { soundPlay.stopSound(); }
-			if (!soundMenu) { soundMenu.playSound("mainMenu");  }
+			
 			currentScreen = null;
 			removeChildren();
 			removeEventListener("menuSelect", menuSelect);
@@ -245,8 +241,8 @@ package
 			
 		}
 		private function play(ev:Event):void {
-			if (soundPlay) { soundPlay.stopSound(); }
 			
+			soundMenu.stopSound();
 			currentLvl = int(ev.data);
 			soundPlay = new soundPlayer();
 			soundPlay.playSound("play");
@@ -256,7 +252,6 @@ package
 			removeEventListener("play", play);
 			
 			state = STATE_PLAY;
-			soundMenu.stopSound();
 			currentScreen = new gameScreen(int(ev.data));
 			addChild(currentScreen);
 			
@@ -308,8 +303,11 @@ package
 					}
 					break;
 				case STATE_GAMEOVER:
-						if (event.keyCode != 37 && event.keyCode != 39){
-							play(new Event("play", false, currentLvl));
+						if (tempTicks + 50 <= numTicks){
+							soundPlay.stopSound();
+							state = STATE_MENU;
+							soundMenu.playSound("mainMenu");
+							currentScreen = null;
 						}
 					break;
 				case STATE_WIN:
@@ -371,7 +369,7 @@ package
 			
 		}
 		
-				private function onChange(event:GamepadEvent):void {
+		private function onChange(event:GamepadEvent):void {
 			
 			if (event.control == Gamepad.LT && event.value == 1) {
 				onKeyDown(new KeyboardEvent("null", 0, 37));
@@ -386,12 +384,19 @@ package
 			}
 			
 			if (event.control == Gamepad.RSTICK_X || event.control == Gamepad.RSTICK_Y) {
+
+				if(currentScreen != null){
+					currentScreen.handleJoystick(event);
+				}
 				
-				//trace("Right stick is doing shit");
-				currentScreen.handleJoystick(event);
+			}else {
+				
+				//Send an event so that you can replay using the xbox controller
+				onKeyDown(new KeyboardEvent("null", 0, 36));
+				onKeyUp(new KeyboardEvent("null", 0, 36));
 				
 			}
-			
+
 		}
 		
 	}

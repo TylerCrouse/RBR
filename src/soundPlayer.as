@@ -21,19 +21,22 @@ package  {
 			var reqWin:URLRequest = new URLRequest("../Assets/Sounds/win_level_sound.MP3"); 
 			winSong = new Sound(reqWin);
 			
+			currentSound = titleSong.play(0, 99);
+			currentSound.stop();
+			
 		}
 		
 		public function playSound(soundName:String):void {
 			
+			currentSound.stop();
+			
 			trace("Playing sound");
 			if (soundName == "mainMenu") {
-				currentSound = null;
 	
 				currentSound = titleSong.play(0, 99);
 			
 			}
 			else if (soundName == "play") {
-				currentSound = null;
 				
 				currentSound = playSong.play(0, 99);
 				
@@ -44,6 +47,7 @@ package  {
 			else if (soundName == "win"){
 				winSong.play();
 			}
+			
 		}
 		public function stopSound():void {
 			trace ("stop sound");
