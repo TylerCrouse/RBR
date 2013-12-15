@@ -1,4 +1,6 @@
 package Screens {
+	import bitmasq.GamepadEvent;
+	import bitmasq.Gamepad;
 	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.events.Touch;
@@ -100,6 +102,30 @@ package Screens {
 			
 			return "levelSelect";
 			
+		}
+		
+		public override function handleJoystick(event:GamepadEvent):void {
+			if (event.control == Gamepad.LT && event.value == 1) {
+				numEnemies--;
+				myText.text = numEnemies.toString();
+				myText.redraw();
+			}
+			if (event.control == Gamepad.RT && event.value == 1) {
+				numEnemies++;
+				myText.text = numEnemies.toString();
+				myText.redraw();
+			}
+			
+			if (event.control == Gamepad.A_DOWN && event.value == 1) {
+				trace("Dispatching levelSelect touched event.");
+				var ev:Event = new Event("play", true, numEnemies);
+				dispatchEvent(ev);
+			}
+			
+			if (event.control == Gamepad.A_RIGHT && event.value == 1) {
+				trace("Dispatching 'back to menu' touched event.");
+				dispatchEvent(new Event("menuSelect", true));
+			}
 		}
 	}
 
