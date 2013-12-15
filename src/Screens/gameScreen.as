@@ -68,9 +68,8 @@ package Screens {
 			
 			var loadLevel:levelLoader = new levelLoader();
 			var currLevel:level = loadLevel.loadLevel(2);
+			
 			currentMap = currLevel.loadLevelMap();
-			
-			
 			enemies = currLevel.dynamicLoad(selectedLevel);
 			
 			

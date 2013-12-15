@@ -29,16 +29,16 @@ package levelData.levels {
 			
 		}
 		
-		public override function dynamicLoad(numEnemies:Number):enemyCollector {
+		public override function dynamicLoad(numEnemies:int):enemyCollector {
 			
 			var enemies:enemyCollector = new enemyCollector();
 			
 			var enemyLevel:Number = 0;
-			var enemyCount:Number = 14 + (numEnemies % 10);
-			
+			var enemyCount:Number = 15 + (numEnemies % 10);
+						
 			while (numEnemies > 0) {
 				
-				enemyLevel = enemyLevel + (numEnemies % 10) * 1.5;
+				enemyLevel = enemyLevel * 15 + (numEnemies % 10);
 				numEnemies = numEnemies / 10;
 				
 			}
@@ -55,7 +55,12 @@ package levelData.levels {
 			
 			var minSpeed:Number = 6 + (10 * seed);
 			
-			trace("seed is " + seed + ". Min speed is " + minSpeed);
+			trace("seed is " + seed + ". Min speed is " + minSpeed + " The enemies level is " + enemyLevel);
+			
+			while (Math.random() + Math.random() < seed) {
+				trace("Rolled an extra enemy");
+				enemyCount++;
+			}
 			
 			var numUpgraded:int = 0;
 			var i:int = 0;
@@ -64,7 +69,7 @@ package levelData.levels {
 				
 				
 				
-				var nextEnemy:enemy = new enemy((i*spread) + 124, (Math.random() * 344) + 96, Math.random() - 1, Math.random() - 1, Math.random() * 3 + minSpeed);
+				var nextEnemy:enemy = new enemy((i*spread) + 124, (Math.random() * 344) + 96, Math.random() - 1, Math.random() - 1, (Math.random() * 3) + minSpeed);
 				
 				while (Math.random() < seed) {
 					nextEnemy.changeSpeed(minSpeed);
@@ -79,7 +84,9 @@ package levelData.levels {
 				enemies.addItem(nextEnemy); 
 				
 			}
+			
 			trace("Placed " + i + " enemies. There was " + numUpgraded + " enemies upgraded.");
+			
 			return enemies;
 		}
 		

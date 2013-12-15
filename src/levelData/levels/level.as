@@ -26,7 +26,7 @@ package levelData.levels {
 			
 		}
 		
-		public function dynamicLoad(numEnemies:Number):enemyCollector {
+		public function dynamicLoad(numEnemies:int):enemyCollector {
 			var enemies:enemyCollector = new enemyCollector();
 			return enemies;
 		}
