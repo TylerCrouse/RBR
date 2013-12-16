@@ -51,7 +51,7 @@ package levelData.levels {
 			
 			
 			
-			var spread:Number = 2296 / enemyCount;
+			var spread:Number = 1620 / enemyCount;
 			
 			var minSpeed:Number = 6 + (10 * seed);
 			
@@ -69,7 +69,7 @@ package levelData.levels {
 				
 				
 				
-				var nextEnemy:enemy = new enemy((i*spread) + 124, (Math.random() * 344) + 96, Math.random() - 1, Math.random() - 1, (Math.random() * 3) + minSpeed);
+				var nextEnemy:enemy = new enemy(Math.random()*2400 + 124, (Math.random() * 344) + 96, Math.random() - 1, Math.random() - 1, (Math.random() * 3) + minSpeed);
 				
 				while (Math.random() < seed) {
 					nextEnemy.changeSpeed(minSpeed);

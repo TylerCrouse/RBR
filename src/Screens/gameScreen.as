@@ -24,6 +24,7 @@ package Screens {
 		private var leftDown:Boolean = false;
 		private var rightDown:Boolean = false;
 		private var myText:TextField;
+		private var offset:int;
 		
 		
 		public function gameScreen(x:int) {
@@ -46,18 +47,20 @@ package Screens {
 		private function move():void {
 			
 			//if keydown move map
-			if (leftDown) {
+			if (leftDown && offset > 0) {
 				currentMap.moveMap(-10);
 				player.setX(10);
 				enemies.moveEnemies(-10);
 				player.destX = player.destX + 10;
+				offset -= 10;
 				
 				
-			}else if (rightDown) {
+			}else if (rightDown && offset < (30*64)) {
 				currentMap.moveMap(10);
 				player.setX(-10);
 				enemies.moveEnemies(10);
 				player.destX = player.destX - 10;
+				offset += 10;
 
 			}
 		}
