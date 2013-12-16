@@ -1,7 +1,11 @@
 package levelData {
 
 	import levelData.levels.*;
-	
+	/**
+	 * ...
+	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * this class uses the level generator class to load the generated level 
+	 */
 	public class levelLoader {
 		
 		public function levelLoader() {

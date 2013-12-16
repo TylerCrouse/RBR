@@ -3,6 +3,7 @@ package Screens {
 	/**
 	 * ...
 	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * this class creates a pause screen to be superimposed over the game screen
 	 */
 	public class pauseScreen extends screen{
 		

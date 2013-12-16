@@ -3,7 +3,11 @@ package levelData.levels {
 	import Collections.enemyCollector;
 	import Objects.enemy;
 	import tileMap.tileMap;
-
+	/**
+	 * ...
+	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * this class generates levels based on the difficulty selected in  the selectScreen.as
+	 */
 	public class levelGenerator extends level{
 		
 		public function levelGenerator() {
@@ -55,10 +59,8 @@ package levelData.levels {
 			
 			var minSpeed:Number = 6 + (10 * seed);
 			
-			trace("seed is " + seed + ". Min speed is " + minSpeed + " The enemies level is " + enemyLevel);
 			
 			while (Math.random() + Math.random() < seed) {
-				trace("Rolled an extra enemy");
 				enemyCount++;
 			}
 			
@@ -85,7 +87,6 @@ package levelData.levels {
 				
 			}
 			
-			trace("Placed " + i + " enemies. There was " + numUpgraded + " enemies upgraded.");
 			
 			return enemies;
 		}

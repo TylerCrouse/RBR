@@ -6,6 +6,9 @@ package Objects
 	import flash.geom.Point;
 	import starling.display.Sprite;
 	
+	//this class creates the art for enemies as well as handles their movement
+	//the enemies handle their own collision
+	
 	public class enemy extends Sprite
 	{
 		private var enemyobj:MovieClip;
@@ -63,7 +66,6 @@ package Objects
 			
 			if (bounds.intersects(pos)) {
 				var date:Date = new Date();
-				trace("hit confirmed " + date.minutes + ":" + date.seconds);
 				return true;
 			}
 			return false;

@@ -5,6 +5,12 @@ package Objects {
         import starling.display.MovieClip;
         import starling.events.Touch;
 		import starling.core.Starling;
+	/**
+	 * ...
+	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * this class creates the 'bug' that the player controls
+	 * the bug handles rotation and movement
+	 */
 
         public class playerObject extends gameObject{
                 
@@ -14,7 +20,6 @@ package Objects {
                 private var xMov:Number = 0;
                 private var yMov:Number = 0;
                 
-                //public var destX:Number;
                 private var destY:Number;
 				private var offset:Number = 0;
                 
@@ -56,20 +61,15 @@ package Objects {
                 
                 public override function tick():void {
                         
-                        //trace("Temp obj is ticking");
                         move();
                         
                 }
                 
                 public override function handleTouch(touch:Touch):void {
 
-                        //trace("Object is handling a touch");
                         if (touch) {
-							//trace(touch.toString());
+							
 							var pt:Point = new Point(touch.globalX, touch.globalY);	
-							//pt = localToGlobal(pt);
-							//trace("Touched at : " + pt.x + ", " + pt.y);
-							//trace("Object at : " + temp.x + ", " + temp.y);
 							turnToFace(pt.x, pt.y);
 							moveTowards(pt.x, pt.y);
 						}
@@ -78,16 +78,12 @@ package Objects {
                 }
                 
                 private function turnToFace(x:Number, y:Number):void {
-                        
-						//trace("turning to face " + temp.x + " " + temp.y);
 						
                         var dx:Number = x - temp.x;
                         var dy:Number = y - temp.y;
                         //calculate the angle in radians
                         var radrot:Number = Math.atan2((dy), (dx));
                 
-                        //trace("Rotating by" + radrot + rotOffset);
-                        //rotationGoal = radrot + rotOffset;
                         temp.rotation = radrot + rotOffset;
                                         
                 }
@@ -107,7 +103,6 @@ package Objects {
                         destX = x;
                         destY = y;
                         var angle:Number = temp.rotation * (180 / Math.PI);
-                      // trace("Angle is " + angle);
                         
                         if (angle <= 90 && angle >= 0) {
                                 
@@ -135,7 +130,6 @@ package Objects {
                                         xMov = -xMov;
                         }
 
-                        //trace("Moving " + xMov + " in x and  " + yMov + " in y");
                         
                 }
                 
@@ -156,21 +150,21 @@ package Objects {
                         skip++;
 						var pt:Point = localToGlobal(new Point(temp.x, temp.y));
                         if (temp.x >= destX - 10 && temp.x <= destX + 10 && temp.y >= destY - 10 && temp.y <= destY + 10) {
-							//("reach the destination at " + temp.x + " : " + temp.y);
+							
                                 destX = temp.x;
                                 destY = temp.y;
 								temp.stop();
                         }else {
 								temp.play();
                                 moveForward();
-                                //contRotation();
+                               
                                 if (skip >= 1) {
-									//trace("destX is " + destX);
+									
                                         turnToFace(destX, destY);
                                         moveTowards(destX, destY);
                                         skip = 0;
                                 }
-                                //trace("Moving");
+                                
                         }
                         
                 }

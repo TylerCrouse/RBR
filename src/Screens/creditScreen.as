@@ -7,13 +7,13 @@ package Screens {
 	/**
 	 * ...
 	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * this class creates the credits screen
 	 */
 	public class creditScreen extends screen{
 		
 		private var bg:Image;
 		private var backButton:MovieClip;
-		//private var temp:tempObj;
-		//private var enemyobj:enemy;
+
 		
 		public function creditScreen() {
 			

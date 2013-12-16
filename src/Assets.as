@@ -5,6 +5,11 @@ package
 	import starling.utils.AssetManager;
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
+	/**
+	 * ...
+	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 *
+	 */
 
 	public class Assets {
 		
@@ -45,11 +50,9 @@ package
 		public static const enemyTexture:Class;
 		
 		[Embed(source="../Assets/Font Assets/Font Sheets/Font 1/Font 1.png")]
-		//[Embed(source="../Assets/sprites.png")]
 		public static const AtlasTextureGame:Class;
 		
 		[Embed(source="../Assets/Font Assets/Font Sheets/Font 1/Font 1.xml", mimeType="application/octet-stream")]
-		//[Embed(source="../Assets/sprites.xml", mimeType="application/octet-stream")]
 		public static const AtlasXmlGame:Class;
 		
 		[Embed(source="../Assets/tiles/tileSprites.png")]

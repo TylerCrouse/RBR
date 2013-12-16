@@ -1,6 +1,11 @@
 package dataHandlers {
 	
 	import flash.net.SharedObject;
+	/**
+	 * ...
+	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * this class creates the levelGenerator handler
+	 */
 
 	public class levelHandler {
 		

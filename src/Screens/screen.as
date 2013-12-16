@@ -5,7 +5,11 @@ package Screens {
 	import starling.events.KeyboardEvent;
 	import starling.events.Touch;
 	
-	
+	/**
+	 * ...
+	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * 
+	 */
 	//All screen types extend this
 	//They must override all functions or give the default functionality
 	public class screen extends Sprite {

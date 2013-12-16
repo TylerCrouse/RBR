@@ -2,6 +2,11 @@ package  Collections {
 	
 	import flash.geom.Rectangle;
 	import Objects.enemy;
+	/**
+	 * ...
+	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * 
+	 */
 	public class enemyCollector {
 		
 		private var screenArray:Array;

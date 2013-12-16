@@ -1,8 +1,6 @@
 package  
 {
         import flash.display.MovieClip;
-        //import flash.events.MouseEvent;
-        //import Objects.tempObj;
         import Screens.*;
         import Collections.*;
         import starling.display.Image;
@@ -19,6 +17,10 @@ package
         import starling.core.Starling;
         import bitmasq.Gamepad;
         import bitmasq.GamepadEvent;
+	/**
+	 * ...
+	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 **/
         
         public class Game extends Sprite {
                 
@@ -32,7 +34,6 @@ package
                 private static const STATE_LEVELSELECT:Number = 8;
                 private static const STATE_CONTROLS:Number = 9;
                 
-                //private var temp:tempObj;
                 private var timer:Timer;
                 private var state:Number;
                 private var numTicks:Number;
@@ -52,7 +53,6 @@ package
                 
                 public function init(event:Event):void {
                         
-                        trace("Initializing");
                         removeEventListener(Event.ADDED_TO_STAGE, init);
                         
                         
@@ -85,7 +85,7 @@ package
                                         //If the current screen has not been set or is not the loading screen, then set it to the loading screen
                                         if (currentScreen == null || currentScreen.getType() != "loading") {
                                                 
-                                                trace("Initializing.");
+                                               
                                                 this.addEventListener("initComplete", doneInit);
                                                 
                                                 startInit();
@@ -146,7 +146,7 @@ package
                                                 tempTicks = numTicks;
                                         }
                                         else if (currentScreen.win) {
-                                                trace("winning");
+                                             
                                                 play(new Event("play", false, currentLvl + 1));
                                         }
 										
@@ -270,7 +270,7 @@ package
                 }
                 
                 private function unPauseGame():void {
-                        trace("unpause");
+                     
                         removeChild(pause);
                         pause = null;
                         state = STATE_PLAY;
@@ -292,14 +292,14 @@ package
                                         break;
                                 case STATE_MENU:
                                         if (event.keyCode == 32) {
-                                                trace("Dispatching levelSelect touched event.");
+                                               
                                                 dispatchEvent(new Event("levelSelect", true));
                                         }
                                         break;
                                 case STATE_PLAY:
                                         if(event.keyCode == 32){
                                                 pauseGame();
-                                                //state = STATE_PAUSE;
+                                               
                                         }
                                         else {
                                                 currentScreen.handleKeyDown(event);
@@ -360,7 +360,7 @@ package
                 
                 //Clean up after init
                 private function doneInit():void {
-                        trace("Done initializing.");
+                       
                         soundPlay.playSound("mainMenu");
                         state = STATE_MENU;
                         

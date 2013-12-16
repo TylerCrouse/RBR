@@ -7,13 +7,13 @@ package Screens {
 	/**
 	 * ...
 	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * This class creates the controls screen
 	 */
 	public class controlsScreen extends screen{
 		
 		private var bg:Image;
 		private var backButton:MovieClip;
-		//private var temp:tempObj;
-		//private var enemyobj:enemy;
+
 		
 		public function controlsScreen() {
 			

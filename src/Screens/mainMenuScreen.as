@@ -8,6 +8,7 @@ package Screens {
 	/**
 	 * ...
 	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * this class creates the main menu screen with navigation to other screens
 	 */
 	public class mainMenuScreen extends screen{
 		

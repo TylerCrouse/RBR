@@ -1,6 +1,11 @@
 package  Collections {
 	
 	import Screens.screen;
+	/**
+	 * ...
+	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * 
+	 */
 
 	//Gurantees a screen object
 	//lets it run screen methods on it

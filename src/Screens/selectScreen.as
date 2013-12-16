@@ -10,6 +10,7 @@ package Screens {
         /**
          * ...
          * @author Keven Abbott, Tyler Crouse and Ian Johnson
+		 * this class allows the user to select their preferred level based on the integer they choose
          */
         public class selectScreen extends screen{
                 
@@ -66,9 +67,6 @@ package Screens {
                                 var point:Point = touch.getLocation(this);
                                 
                                 if (down.getBounds(this.parent).containsPoint(point)) {
-                                        //trace("Dispatching levelSelect touched event.");
-                                        //var ev:Event = new Event("play", true, 1);
-                                        //dispatchEvent(ev);
                                         if(numEnemies > 0){
                                                 numEnemies--;
                                         }

@@ -1,6 +1,11 @@
 package  Collections {
 	
 	import tileMap.tiles.*;
+	/**
+	 * ...
+	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * 
+	 */
 
 	//This class gurantees a gameObject in an array
 	//lets it run gameObject methods on them

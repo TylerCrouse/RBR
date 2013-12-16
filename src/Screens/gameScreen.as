@@ -3,7 +3,6 @@ package Screens {
 	import bitmasq.GamepadEvent;
 	import Collections.enemyCollector;
 	import flash.geom.Point;
-	//import flash.text.TextField;
 	import levelData.levelLoader;
 	import levelData.levels.*;
 	import Objects.enemy;
@@ -13,6 +12,12 @@ package Screens {
 	import starling.events.Touch;
 	import tileMap.tileMap;
 	import starling.text.TextField;
+	/**
+	 * ...
+	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * this class creates the playable game screen
+	 *
+	 */
 
 	public class gameScreen extends screen{
 		

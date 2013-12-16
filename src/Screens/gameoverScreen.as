@@ -9,6 +9,7 @@ package Screens {
 	/**
 	 * ...
 	 * @author Keven Abbott, Tyler Crouse and Ian Johnson
+	 * this class creates the gameOver screen upon collision detection
 	 */
 	public class gameoverScreen extends screen{
 		
