@@ -107,7 +107,7 @@ package Objects {
                         destX = x;
                         destY = y;
                         var angle:Number = temp.rotation * (180 / Math.PI);
-                       //trace("Angle is " + angle);
+                      // trace("Angle is " + angle);
                         
                         if (angle <= 90 && angle >= 0) {
                                 
@@ -190,9 +190,9 @@ package Objects {
 				public override function handleJoystick(event:GamepadEvent):void {
 					
 					var newPoint:Point = new Point(Gamepad.get().query(event.deviceIndex, 5), Gamepad.get().query(event.deviceIndex, 6));
-					newPoint.x = newPoint.x * 50;
-					newPoint.y = newPoint.y * 50;
-					turnToFace(temp.x + newPoint.x,temp.y + newPoint.y);
+					newPoint.x = newPoint.x * 75;
+					newPoint.y = newPoint.y * 75;
+					turnToFace(temp.x + newPoint.x, temp.y + newPoint.y);
 					moveTowards(temp.x + newPoint.x, temp.y + newPoint.y);
 					
 				}

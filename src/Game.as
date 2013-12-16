@@ -149,7 +149,11 @@ package
                                                 trace("winning");
                                                 play(new Event("play", false, currentLvl + 1));
                                         }
-                                        
+										
+										if ((Gamepad.get().query(0, 5) >= .1) || (Gamepad.get().query(0, 6) >= .1) || (Gamepad.get().query(0, 5) <= -.1) || (Gamepad.get().query(0, 6) <= -.1)) {
+											currentScreen.handleJoystick(new GamepadEvent("null", 0, 0, 0, 0));
+										}
+										
                                         break;
                                         
                                 case STATE_PAUSE:
