@@ -33,13 +33,13 @@ package levelData.levels {
 			
 			var enemies:enemyCollector = new enemyCollector();
 			
-			var enemyLevel:Number = 0;
+			var enemyLevel:int = 0;
 			var enemyCount:Number = 15 + (numEnemies % 10);
 						
 			while (numEnemies > 0) {
 				
-				enemyLevel = enemyLevel * 15 + (numEnemies % 10);
-				numEnemies = numEnemies / 10;
+				enemyLevel += 1;
+				numEnemies--;
 				
 			}
 			

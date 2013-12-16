@@ -47,17 +47,17 @@ package Screens {
 			
 			//if keydown move map
 			if (leftDown) {
-				currentMap.moveMap(-7);
-				player.setX(7);
-				enemies.moveEnemies(-7);
-				player.destX = player.destX + 7;
+				currentMap.moveMap(-10);
+				player.setX(10);
+				enemies.moveEnemies(-10);
+				player.destX = player.destX + 10;
 				
 				
 			}else if (rightDown) {
-				currentMap.moveMap(7);
-				player.setX(-7);
-				enemies.moveEnemies(7);
-				player.destX = player.destX - 7;
+				currentMap.moveMap(10);
+				player.setX(-10);
+				enemies.moveEnemies(10);
+				player.destX = player.destX - 10;
 
 			}
 		}

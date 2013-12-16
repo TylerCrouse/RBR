@@ -9,7 +9,7 @@ package Objects {
         public class playerObject extends gameObject{
                 
                 private var temp:MovieClip;
-                private var moveSpeed:Number = 10;
+                private var moveSpeed:Number = 12;
                 
                 private var xMov:Number = 0;
                 private var yMov:Number = 0;
