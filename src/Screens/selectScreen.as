@@ -106,7 +106,9 @@ package Screens {
                 
                 public override function handleJoystick(event:GamepadEvent):void {
                         if (event.control == Gamepad.LT && event.value == 1) {
-                                numEnemies--;
+								if(numEnemies > 0){
+									numEnemies--;
+								}
                                 myText.text = numEnemies.toString();
                                 myText.redraw();
                         }
